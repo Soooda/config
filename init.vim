@@ -48,7 +48,7 @@ set softtabstop=4
 
 set autoindent
 set list
-set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
+set listchars=tab:␉·,nbsp:⎵,trail:·
 "Scroll offset: how many lines unomitted above the cursor line"
 set scrolloff=5
 
