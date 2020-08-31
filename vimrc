@@ -11,6 +11,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 "Setup"
 set nocompatible
 filetype on
@@ -129,4 +130,3 @@ colorscheme snazzy
 let g:SnazzyTransparent = 1
 set background=dark
 let g:airline_theme='cool'
-
