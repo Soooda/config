@@ -1,2 +1,2 @@
 # .config
-My dotfiles
+All the cool kids have their own configs :DD
