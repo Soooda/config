@@ -16,27 +16,66 @@ endif
 call plug#begin()
 
 
-"Which key"
-Plug 'liuchengxu/vim-which-key'
+" Screensaver
+Plug 'itchyny/screensaver.vim'
+map <silent><F12> :ScreenSaver<CR>
 
 
-"Coc"
+" COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
     \   'coc-json',
-    \   'coc-vimlsp',
     \   'coc-marketplace',
-    \   'coc-python']
+    \   'coc-vimlsp',
+    \   'coc-pairs',
+    \   'coc-lists',
+    \   'coc-cmake',
+    \   'coc-html',
+    \   'coc-css',
+    \   'coc-eslint',
+    \   'coc-syntax',
+    \   'coc-python',
+    \   'coc-java']
+
+
+"Toggle Comment or not <LEADER> + c
+Plug 'preservim/nerdcommenter'
+let g:NERDCreateDefaultMappings = 0
+
+
+" Upderline the same words
+Plug 'dominikduda/vim_current_word'
+let g:vim_current_word#highlight_current_word = 0
+
+
+"Git change history lint
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_map_keys = 0
+
+
+"Support which key of vim
+Plug 'liuchengxu/vim-which-key'
+
+
+"Vim Startup Menu"
+Plug 'mhinz/vim-startify'
+
+
+"NerdTree"
+Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+" F1 Toggle
+map <silent> <F1> :NERDTreeTabsToggle<CR>
+imap <silbent> <F1> <ESC>:NERDTreeTabsToggle<CR>
+
+
+"JSON with Comments
+Plug 'kevinoid/vim-jsonc'
 
 
 "Hex Color Preview"
-Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase'  }
 let g:Hexokinase_highlighters = ['virtual']
-
-
-"Auto-Pairs"
-Plug 'jiangmiao/auto-pairs'
-
 
 
 "Rainbow Brackets"
@@ -49,24 +88,29 @@ Plug 'ryanoasis/vim-devicons'
 
 
 "Themes"
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'itchyny/lightline.vim'
-Plug 'liuchengxu/eleline.vim'
-let g:airline_powerline_fonts = 1
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='fruit_punch'
+let g:airline#extensions#tabline#enabled = 1
 set statusline^=%{coc#status()}
 
-Plug 'arzg/vim-colors-xcode'
+
+"Plug 'itchyny/lightline.vim'
+"Plug 'liuchengxu/eleline.vim'
+
+
+"Plug 'arzg/vim-colors-xcode'
 Plug 'connorholyday/vim-snazzy'
 "Transparent background"
 let g:SnazzyTransparent = 1
-
 
 call plug#end()
 
 "Themes"
 set termguicolors
 colorscheme snazzy
+"colorscheme xcodedark
+
 
 "----------------------------------------------------Mappings----------------------------------------------------"
 " Set <SPACE> to <LEADER>
@@ -78,18 +122,14 @@ map S :w<CR>
 map Q :q<CR>
 map R :source $MYVIMRC<CR>
 map <LEADER><CR> :nohlsearch<CR>
-noremap = nzz
-noremap - Nzz
-
-"Press ` to change case (instead of ~)"
-noremap ` ~
-
-
 "----------------------------------------------------Settings----------------------------------------------------"
 set nocompatible
 set encoding=utf-8
 "Enable mouse
 set mouse=a
+"Use System's Clipboard
+set clipboard=unnamed
+
 
 "Remember cursor location
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -108,7 +148,6 @@ set visualbell
 set scrolloff=4
 set list
 set listchars=nbsp:⎵,trail:·
-set updatetime=100
 
 "Status/Command Bar"
 set laststatus=2
@@ -149,35 +188,28 @@ exec "nohlsearch"
 set splitright
 set splitbelow
 
-"Backup"
-set backup
-set backupdir=$HOME/.config/nvim/files/backup/
-set backupext=-vimbackup
-set backupskip=
-set directory=$HOME/.config/nvim/files/swap//
-set updatecount=100
-set undofile
-set undodir=$HOME/.config/nvim/files/undo/
-set viminfo='100,n$HOME/.config/nvim/files/info/viminfo
+"Redraw"
+set lazyredraw
 
-"Coc
+"Transparent Background"
+"hi Normal guibg=None ctermbg=None
+
+"----------------------------------------------------COC----------------------------------------------------"
 set hidden
 set updatetime=100
 set shortmess+=c
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -207,14 +239,12 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 function! s:cocActionsOpenFromSelected(type) abort
     execute 'CocCommand actions.open ' . a:type
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.one ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-
-
+"Improve brackets formating
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+    \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
