@@ -1,5 +1,4 @@
 {
-    "description": "Configuration file for coc.vim",
     "coc.preferences.formatOnType": true,
     "suggest.completionItemKindLabels": {
             "class": "\uf0e8",
