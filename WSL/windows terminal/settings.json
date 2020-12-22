@@ -22,7 +22,7 @@
     // Each one of them will appear in the 'New Tab' dropdown,
     //   and can be invoked from the commandline with `wt.exe -p xxx`
     // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
-    
+
 
     "profiles":
     {
@@ -78,13 +78,13 @@
     "schemes": [
         {
             "name" : "Iterm2",
-        
+
             "cursorColor": "#CCCCCC",
             "selectionBackground": "#C1DDFF",
-        
+
             "background" : "#000000",
             "foreground" : "#A1C7DD",
-        
+
             "black" : "#000000",
             "blue" : "#0225C7",
             "cyan" : "#00C5C7",
@@ -113,7 +113,7 @@
         // These two lines additionally bind them to Ctrl+C and Ctrl+V.
         // To learn more about selection, visit https://aka.ms/terminal-selection
         { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
-        { "command": "paste", "keys": "ctrl+v" },
+        { "command": "paste", "keys": "ctrl+shift+v" },
 
         // Press Ctrl+Shift+F to open the search box
         { "command": "find", "keys": "ctrl+shift+f" },
