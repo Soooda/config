@@ -1,0 +1,144 @@
+
+"  __  __        __     _____ __  __ ____   ____
+" |  \/  |_   _  \ \   / /_ _|  \/  |  _ \ / ___|
+" | |\/| | | | |  \ \ / / | || |\/| | |_) | |
+" | |  | | |_| |   \ V /  | || |  | |  _ <| |___
+" |_|  |_|\__, |    \_/  |___|_|  |_|_| \_\\____|
+"         |___/
+
+" Author: @Soooda
+
+" ===
+" === Basic
+" ===
+set nocompatible
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+set encoding=utf-8
+
+"Enable cursor
+set mouse=a
+
+set clipboard=unnamed
+
+"Prevent incorrect background rendering
+let &t_ut=''
+
+set number
+"set relativenumber
+set ruler
+set cursorline
+syntax on
+
+"Tab
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+set list
+set listchars=tab:▸\ ,trail:▫
+set scrolloff=5
+
+"Prevent auto line split
+set wrap
+set tw=0
+
+set indentexpr=
+
+"Better backspace
+set backspace=indent,eol,start
+
+set foldmethod=indent
+set foldlevel=99
+
+"Window split
+set splitright
+set splitbelow
+
+"Status/Command bar
+set laststatus=2
+set autochdir
+set showcmd
+"Command autocomplete
+set wildmenu
+set wildmode=longest,list,full
+
+"Search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+"Restore cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" ===
+" === Keys Mapping
+" ===
+"Set <LEADER> as <SPACE>
+let mapleader=" "
+
+map ; :
+map S :w<CR>
+map Q :q<CR>
+map R :source $MYVIMRC<CR>
+
+"Faster Navigation
+noremap J 20j
+noremap K 20k
+noremap H 0
+noremap L $
+
+"Search
+map <LEADER><CR> :nohlsearch<CR>
+noremap - Nzz
+noremap = nzz
+
+"Press ` to change cases (instead of ~)
+noremap ` ~
+
+" h - screen left
+" j - screen down
+" k - screen up
+" l - screen right
+" 1~9 tab 1~9
+" 0 - close other tabs
+noremap <silent><LEADER>h <C-w>h
+noremap <silent><LEADER>j <C-w>j
+noremap <silent><LEADER>k <C-w>k
+noremap <silent><LEADER>l <C-w>l
+noremap <silent><LEADER><LEADER>h <C-w>H
+noremap <silent><LEADER><LEADER>j <C-w>J
+noremap <silent><LEADER>1 1gt
+noremap <silent><LEADER>2 2gt
+noremap <silent><LEADER>3 3gt
+noremap <silent><LEADER>4 4gt
+noremap <silent><LEADER>5 5gt
+noremap <silent><LEADER>6 6gt
+noremap <silent><LEADER>7 7gt
+noremap <silent><LEADER>8 8gt
+noremap <silent><LEADER>9 9gt
+noremap <silent><LEADER>0 :tabo<CR>
+
+" Split Screen
+" s +
+"     h Split left
+"     l Split right
+"     j Split down
+"     k Split up
+"     t Split a new tab
+map s <nop>
+noremap <silent>sh :set nosplitright<CR>:vnew<CR>
+noremap <silent>sl :set splitright<CR>:vnew<CR>
+"noremap <silent>sj :set splitbelow<CR>:new<CR>
+"noremap <silent>sk :set nosplitbelow<CR>:new<CR>
+noremap <silent>st :tabnew<CR>
+
+" ===
+" === Pre-launch Commands
+" ===
+color zellner
+exec "nohlsearch"
