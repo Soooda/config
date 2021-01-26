@@ -29,7 +29,7 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
-            "fontFace": "Hack NF",
+            "fontFace": "Hack Nerd Font",
             "fontSize": 14,
             "cursorShape": "emptyBox",
             "useAcrylic": true,
