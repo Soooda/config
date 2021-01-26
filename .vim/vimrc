@@ -11,19 +11,36 @@
 " ===
 " === Basic
 " ===
+set exrc
+set secure
 set nocompatible
 filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
+set autoindent
+set smartindent
 set encoding=utf-8
+set visualbell
+set noshowmode
+set hidden
+set lazyredraw
+set updatetime=100
+" Omit the hit <Enter> message
+set shortmess+=c
 
-"Enable cursor
+set notimeout
+set ttimeoutlen=0
+
+set viewoptions=cursor,folds,slash,unix
+
+" Enable Cursor
 set mouse=a
 
-set clipboard=unnamed
+" Use the system clipboard
+set clipboard=unnamedplus
 
-"Prevent incorrect background rendering
+" Prevent incorrect background rendering
 let &t_ut=''
 
 set number
@@ -32,53 +49,61 @@ set ruler
 set cursorline
 syntax on
 
-"Tab
-set expandtab
+" Tab
+set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set shiftround
 
 set list
-set listchars=tab:▸\ ,trail:▫
-set scrolloff=5
+set listchars=tab:\|\ ,nbsp:⎵,trail:▫
+set scrolloff=4
 
-"Prevent auto line split
+" Prevent auto line split
 set wrap
 set tw=0
 
 set indentexpr=
 
-"Better backspace
+" Better backspace
 set backspace=indent,eol,start
 
+" Fold
 set foldmethod=indent
 set foldlevel=99
+set foldenable
 
-"Window split
+" Paste Format Option
+set formatoptions-=tc
+
+" Complete Option
+set completeopt=longest,noinsert,menuone,noselect,preview
+
+" Window split
 set splitright
 set splitbelow
 
-"Status/Command bar
-set laststatus=2
+" Status/Command bar
+set laststatus=2 "To always display statusline
 set autochdir
 set showcmd
-"Command autocomplete
+" Command autocomplete
 set wildmenu
-set wildmode=longest,list,full
 
-"Search
+" Search
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-"Restore cursor position
+" Restore cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " ===
 " === Keys Mapping
 " ===
-"Set <LEADER> as <SPACE>
+" Set <LEADER> as <SPACE>
 let mapleader=" "
 
 map ; :
@@ -86,19 +111,32 @@ map S :w<CR>
 map Q :q<CR>
 map R :source $MYVIMRC<CR>
 
-"Faster Navigation
+" Redo
+map U <C-r>
+
+" Faster Navigation
 noremap J 20j
 noremap K 20k
 noremap H 0
 noremap L $
 
-"Search
+" Search
 map <LEADER><CR> :nohlsearch<CR>
 noremap - Nzz
 noremap = nzz
 
-"Press ` to change cases (instead of ~)
+" Resize splits with arrow keys
+noremap <up> :res +5<CR>
+noremap <down> :res -5<CR>
+noremap <left> :vertical resize-5<CR>
+noremap <right> :vertical resize+5<CR>
+
+" Press ` to change cases (instead of ~)
 noremap ` ~
+
+" Identation
+noremap < <<
+noremap > >>
 
 " h - screen left
 " j - screen down
@@ -110,7 +148,9 @@ noremap <silent><LEADER>h <C-w>h
 noremap <silent><LEADER>j <C-w>j
 noremap <silent><LEADER>k <C-w>k
 noremap <silent><LEADER>l <C-w>l
+" Change the screen layout to horizontal
 noremap <silent><LEADER><LEADER>h <C-w>H
+" Change the screen layout to vertical
 noremap <silent><LEADER><LEADER>j <C-w>J
 noremap <silent><LEADER>1 1gt
 noremap <silent><LEADER>2 2gt
@@ -125,20 +165,19 @@ noremap <silent><LEADER>0 :tabo<CR>
 
 " Split Screen
 " s +
-"     h Split left
-"     l Split right
-"     j Split down
-"     k Split up
+"     h Split horizontally
+"     v Split vertically
 "     t Split a new tab
 map s <nop>
-noremap <silent>sh :set nosplitright<CR>:vnew<CR>
-noremap <silent>sl :set splitright<CR>:vnew<CR>
-"noremap <silent>sj :set splitbelow<CR>:new<CR>
-"noremap <silent>sk :set nosplitbelow<CR>:new<CR>
+noremap <silent>sh :set splitright<CR>:vsplit<CR>
+noremap <silent>sv :set splitbelow<CR>:split<CR>
 noremap <silent>st :tabnew<CR>
 
 " ===
 " === Pre-launch Commands
 " ===
+" Color
+set termguicolors "Enable true colors support
+
 color zellner
 exec "nohlsearch"
