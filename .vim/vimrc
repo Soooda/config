@@ -47,7 +47,7 @@ set number
 "set relativenumber
 set ruler
 set cursorline
-syntax on
+syntax enable
 
 " Tab
 set noexpandtab
@@ -55,13 +55,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set shiftround
-
-" convert spaces to tabs when reading file
-autocmd! bufreadpost * set noexpandtab | retab! 4
-" convert tabs to spaces before writing file
-autocmd! bufwritepre * set expandtab | retab! 4
-" convert spaces to tabs after writing file (to show guides again)
-autocmd! bufwritepost * set noexpandtab | retab! 4
 
 set list
 set listchars=tab:\|\ ,nbsp:⎵,trail:▫
@@ -183,8 +176,7 @@ noremap <silent>st :tabnew<CR>
 " ===
 " === Pre-launch Commands
 " ===
-" Color
-set termguicolors "Enable true colors support
+packadd! dracula
+colorscheme dracula
 
-color zellner
 exec "nohlsearch"
