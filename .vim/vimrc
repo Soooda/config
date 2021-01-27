@@ -8,6 +8,13 @@
 
 " Author: @Soooda
 
+" Auto Download vim plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " ===
 " === Basic
 " ===
@@ -58,7 +65,7 @@ set shiftround
 
 set list
 set listchars=tab:\|\ ,nbsp:⎵,trail:▫
-set scrolloff=4
+set scrolloff=5
 
 " Prevent auto line split
 set wrap
@@ -174,9 +181,40 @@ noremap <silent>sv :set splitbelow<CR>:split<CR>
 noremap <silent>st :tabnew<CR>
 
 " ===
+" === Plugins
+" ===
+call plug#begin('~/.vim/plugged')
+
+Plug 'connorholyday/vim-snazzy'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/vim-cursorword'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+
+call plug#end()
+
+" ===
 " === Pre-launch Commands
 " ===
-packadd! dracula
-colorscheme dracula
+
+"packadd! dracula
+"colorscheme dracula
+
+set termguicolors
+let g:SnazzyTransparent = 1
+color snazzy
+
+let g:airline_theme='dracula'
+let g:lightline = {
+  \     'active': {
+  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
+  \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
+  \     }
+  \ }
 
 exec "nohlsearch"

@@ -113,6 +113,9 @@ bindkey '^ ' autosuggest-accept
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias s="neofetch"
+alias vi="vim"
+alias vim="nvim"
 alias lg="lazygit"
 alias ra="ranger"
 

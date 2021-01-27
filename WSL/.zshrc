@@ -45,6 +45,8 @@ ZSH_THEME="ys"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -70,11 +72,21 @@ ZSH_THEME="ys"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-autosuggestions
+	colored-man-pages
+	vi-mode
 	zsh-syntax-highlighting
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Plugin Configuration
+# vi-mode
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+
+# zsh-autosuggestions
+bindkey '^ ' autosuggest-accept
 
 # User configuration
 
@@ -93,8 +105,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-bindkey '^ ' autosuggest-accept
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -103,16 +113,13 @@ bindkey '^ ' autosuggest-accept
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias s="neofetch"
+alias vi="vim"
 alias vim="nvim"
-
-
-export PATH="$HOME/.local/bin:$PATH"
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/soda/.sdkman"
-[[ -s "/home/soda/.sdkman/bin/sdkman-init.sh" ]] && source "/home/soda/.sdkman/bin/sdkman-init.sh"
-# Autojump
-[[ -s /home/soda/.autojump/etc/profile.d/autojump.sh  ]] && source /home/soda/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit && compinit -u
+alias lg="lazygit"
+alias ra="ranger"
 
 # Startup Commands
 neofetch
+
+export PATH="$HOME/.local/bin:$PATH"
