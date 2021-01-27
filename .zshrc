@@ -71,11 +71,11 @@ ZSH_THEME="ys"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	colored-man-pages
-	vi-mode
-	zsh-syntax-highlighting
-	zsh-autosuggestions
+    git
+    colored-man-pages
+    vi-mode
+    zsh-syntax-highlighting
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,8 +114,8 @@ bindkey '^ ' autosuggest-accept
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias s="neofetch"
-alias vi="vim"
-alias vim="nvim"
+alias vi="\vim"
+alias vim="\nvim"
 alias lg="lazygit"
 alias ra="ranger"
 
