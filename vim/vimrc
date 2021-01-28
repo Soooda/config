@@ -64,7 +64,7 @@ set softtabstop=4
 set shiftround
 
 set list
-set listchars=tab:\|\ ,nbsp:⎵,trail:▫
+set listchars=tab:\|\ ,nbsp:⎵,trail:·
 set scrolloff=5
 
 " Prevent auto line split
