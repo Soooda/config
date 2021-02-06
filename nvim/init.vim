@@ -303,6 +303,7 @@ let g:scrollstatus_size = 15
 
 " Comment
 nmap <LEADER>c gcc
+vmap <LEADER>c gc
 
 " coc.nvim
 let g:coc_global_extensions = [
