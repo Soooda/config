@@ -29,7 +29,7 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
-            "fontFace": "Hack Nerd Font",
+            "fontFace": "Hack NF",
             "fontSize": 14,
             "cursorShape": "emptyBox",
             "useAcrylic": true,
@@ -48,7 +48,7 @@
                 "name": "Ubuntu-20.04",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "//wsl$/Ubuntu-20.04/home/soda",
-                "icon": "ms-appdata:///roaming/HakasePixel.png"
+                // "icon": "ms-appdata:///roaming/HakasePixel.png"
             },
             {
                 // Make changes here to the powershell.exe profile.
