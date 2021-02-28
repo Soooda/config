@@ -1,5 +1,4 @@
 {
-    "coc.preferences.formatOnType": true,
     "coc.preferences.hoverTarget": "preview",
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.snippetStatusText": "Ⓢ ",
@@ -85,6 +84,8 @@
     "java.autobuild.enabled": false,
     "java.completion.overwrite": false,
     "java.completion.guessMethodArguments": true,
+    "html.autoClosingTags": true,
+    "html.format.wrapLineLength": 0,
     "diagnostic-languageserver.filetypes": {},
     "diagnostic-languageserver.formatFiletypes": {},
     "languageserver": {}

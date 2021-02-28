@@ -210,9 +210,6 @@ Plug 'Yggdroot/indentLine'
 " Rainbow Brackets
 Plug 'luochen1990/rainbow'
 
-" Auto Pairs
-Plug 'jiangmiao/auto-pairs'
-
 " Lazygit
 Plug 'kdheepak/lazygit.nvim'
 
@@ -315,7 +312,10 @@ let g:coc_global_extensions = [
     \ 'coc-explorer',
     \ 'coc-lists',
     \ 'coc-gitignore',
-    \ 'coc-java']
+    \ 'coc-java',
+    \ 'coc-html',
+    \ 'coc-pairs',
+    \ 'coc-css']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
