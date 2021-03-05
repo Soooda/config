@@ -36,3 +36,30 @@ yay -S noto-fonts-emoji
 yay -S ttf-ms-win10-auto-zh_cn noto-fonts-cjk
 ```
 
+## Arch Linux Packages
+base
+base-devel
+linux
+linux-firmware
+amd-ucode
+nvidia
+nvidia-utils
+nvidia-settings
+man-db
+vim
+git
+neovim-nightly-bin
+lazygit
+net-tools
+efibootmgr
+dhcpcd
+os-prober
+xorg
+xorg-server
+xorg-xinit
+htop
+nvtop
+gotop
+ranger
+neofetch
+refind
