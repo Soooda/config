@@ -26,6 +26,6 @@ yay -S noto-fonts-emoji ttf-liberation
 ##### Chinese
 
 ```bash
-yay -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei adobe-source-han-mono-cn-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
+
 ```
 
