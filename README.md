@@ -15,7 +15,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ##### English
 ```bash
-
+yay -S ttf-dejavu noto-fonts
 ```
 
 ##### Coding
@@ -33,6 +33,6 @@ yay -S noto-fonts-emoji
 ##### Chinese
 
 ```bash
-yay -S ttf-ms-win10-auto-zh_cn
+yay -S ttf-ms-win10-auto-zh_cn noto-fonts-cjk
 ```
 
