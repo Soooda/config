@@ -17,10 +17,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 Mainly `Hack Nerd Font`
 
-### Fonts
+##### Emoji
 
 ```bash
-yay -S noto-fonts-emoji ttf-liberation
+yay -S noto-fonts-emoji
 ```
 
 ##### Chinese
