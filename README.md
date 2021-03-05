@@ -26,6 +26,6 @@ yay -S noto-fonts-emoji ttf-liberation
 ##### Chinese
 
 ```bash
-
+yay -S wqy-microhei
 ```
 
