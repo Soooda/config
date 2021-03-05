@@ -27,7 +27,7 @@ yay -S nerd-fonts-hack
 ##### Emoji
 
 ```bash
-yay -S noto-fonts-emoji
+yay -S noto-fonts-emoji ttf-joypixels
 ```
 
 ##### Chinese
