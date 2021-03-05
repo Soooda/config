@@ -13,9 +13,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ## Fonts
 
-### Coding
+##### Coding
 
-Mainly `Hack Nerd Font`
+```bash
+yay -S nerd-fonts-hack
+```
 
 ##### Emoji
 
