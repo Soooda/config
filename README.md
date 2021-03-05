@@ -24,10 +24,10 @@ yay -S ttf-dejavu noto-fonts
 yay -S nerd-fonts-hack
 ```
 
-##### Emoji
+##### Emoji and Unicode Symbols
 
 ```bash
-yay -S ttf-linux-libertine ttf-inconsolata ttf-joypixels ttf-twemoji-color noto-fonts-emoji ttf-liberation ttf-droid
+yay -S ttf-linux-libertine ttf-inconsolata ttf-joypixels ttf-twemoji-color noto-fonts-emoji ttf-liberation ttf-droid ttf-font-awesome ttf-symbola
 ```
 
 ##### Chinese
