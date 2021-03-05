@@ -13,6 +13,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ## Fonts
 
+##### English
+```bash
+
+```
+
 ##### Coding
 
 ```bash
