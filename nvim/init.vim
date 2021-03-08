@@ -201,7 +201,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " Tabline
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+" Plug 'romgrk/barbar.nvim'
 
 " Indent Guide
 " Plug 'glepnir/indent-guides.nvim'
