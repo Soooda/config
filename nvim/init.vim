@@ -23,7 +23,8 @@ set smartindent
 set encoding=utf-8
 set visualbell
 set noshowmode
-set hidden
+" Hide closed buffer
+set nohidden
 set lazyredraw
 set updatetime=100
 " Omit the hit <Enter> message
@@ -201,7 +202,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " Tabline
 Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'romgrk/barbar.nvim'
+Plug 'romgrk/barbar.nvim'
 
 " Indent Guide
 " Plug 'glepnir/indent-guides.nvim'
@@ -223,7 +224,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'tomtom/tcomment_vim'
 
 " Start Screen
-Plug 'mhinz/vim-startify'
+Plug 'soooda/vim-startify'
 
 " coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
