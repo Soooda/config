@@ -224,7 +224,10 @@ Plug 'liuchengxu/vista.vim'
 Plug 'tomtom/tcomment_vim'
 
 " Start Screen
-Plug 'soooda/vim-startify'
+" Plug 'soooda/vim-startify'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'glepnir/dashboard-nvim'
 
 " coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -248,6 +251,40 @@ lua require'colorizer'.setup()
 
 " Rainbow Brackets
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" Dashboard
+let g:dashboard_default_executive = 'fzf'
+let g:dashboard_custom_shortcut={
+      \ 'last_session'       : '',
+      \ 'find_history'       : '',
+      \ 'find_file'          : '',
+      \ 'new_file'           : '',
+      \ 'change_colorscheme' : '',
+      \ 'find_word'          : '',
+      \ 'book_marks'         : '',
+      \ }
+let g:dashboard_custom_header=[
+    \'',
+    \'',
+    \'        ⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀  ',
+    \'      ⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷ ',
+    \'     ⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿ ',
+    \'    ⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿ ',
+    \'  ⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿ ',
+    \' ⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿ ',
+    \' ⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟ ',
+    \' ⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣ ',
+    \' ⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾ ',
+    \' ⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿ ',
+    \' ⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿ ',
+    \' ⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿ ',
+    \' ⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿ ',
+    \'  ⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋  ⣾⡌⢠⣿⡿⠃ ',
+    \' ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉            ',
+    \'',
+    \'',
+    \]
+autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2 "Diable tabline for dashboard buffer
 
 " Lazygit
 nnoremap <silent><F3> :LazyGit<CR>
@@ -277,6 +314,7 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 "let g:indentLine_setColors = 0
 "let g:indentLine_color_term = 100
 let g:indentLine_char = '┊'
+let g:indentLine_fileTypeExclude = ['dashboard']
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " Taglist
