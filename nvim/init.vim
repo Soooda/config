@@ -202,7 +202,13 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " Tabline
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+" Plug 'romgrk/barbar.nvim'
+
+" Cursor Acceleration
+Plug 'rhysd/accelerated-jk'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Indent Guide
 " Plug 'glepnir/indent-guides.nvim'
@@ -245,6 +251,11 @@ augroup illuminate_augroup
     autocmd!
     autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
 augroup END
+
+" Cursor Acceleration
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+let g:accelerated_jk_acceleration_table = [2, 4, 7, 15]
 
 " Color Preview
 lua require'colorizer'.setup()
@@ -325,8 +336,8 @@ let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
 let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
+\   "function": " ",
+\   "variable": " ",
 \  }
 " function! NearestMethodOrFunction() abort
 " 	return get(b:, 'vista_nearest_method_or_function', '')
@@ -340,6 +351,17 @@ let g:scrollstatus_size = 15
 " Comment
 nmap <LEADER>c gcc
 vmap <LEADER>c gc
+
+" Treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 " coc.nvim
 let g:coc_global_extensions = [
@@ -391,7 +413,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <LEADER>rn <Plug>(coc-rename)
 
 " Use H to show documentation in preview window.
-nnoremap <silent> H :call <SID>show_documentation()<CR>
+" nnoremap <silent> H :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
