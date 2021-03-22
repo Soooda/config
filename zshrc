@@ -88,8 +88,11 @@ VI_MODE_SET_CURSOR=true
 # zsh-autosuggestions
 # bindkey '^ ' autosuggest-accept
 
-# User configuration
-
+# User Configuration
+export VISUAL=nvim
+export EDITOR=nvim
+export RANGER_LOAD_DEFAULT_RC=FALSE
+if [ -n "$RANGER_LEVEL"  ]; then export PS1="[Spawned by Ranger]$PS1"; fi # Ranger spawned shell indicator
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
