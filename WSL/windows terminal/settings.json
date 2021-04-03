@@ -33,12 +33,12 @@
             "fontSize": 14,
             "cursorShape": "emptyBox",
             "useAcrylic": true,
-            "acrylicOpacity": 0.5,
+            "acrylicOpacity": 0.7,
             // Windows Terminal's AppData folder: %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\RoamingState
             "backgroundImage": "ms-appdata:///roaming/maple.jpg",
             "backgroundImageStretchMode": "uniformToFill",
             "backgroundImageOpacity": 0.7,
-            "colorScheme": "Iterm2"
+            "colorScheme": "Dracula"
         },
         "list":
         [
@@ -78,13 +78,10 @@
     "schemes": [
         {
             "name" : "Iterm2",
-
             "cursorColor": "#CCCCCC",
             "selectionBackground": "#C1DDFF",
-
             "background" : "#000000",
             "foreground" : "#A1C7DD",
-
             "black" : "#000000",
             "blue" : "#0225C7",
             "cyan" : "#00C5C7",
@@ -101,6 +98,29 @@
             "brightRed" : "#FF6D67",
             "brightWhite" : "#FEFFFF",
             "brightYellow" : "#FEFB67"
+        },
+        {
+            "name": "Dracula",
+            "cursorColor": "#F8F8F2",
+            "selectionBackground": "#44475A",
+            "background": "#282A36",
+            "foreground": "#F8F8F2",
+            "black": "#21222C",
+            "blue": "#BD93F9",
+            "cyan": "#8BE9FD",
+            "green": "#50FA7B",
+            "purple": "#FF79C6",
+            "red": "#FF5555",
+            "white": "#F8F8F2",
+            "yellow": "#F1FA8C",
+            "brightBlack": "#6272A4",
+            "brightBlue": "#D6ACFF",
+            "brightCyan": "#A4FFFF",
+            "brightGreen": "#69FF94",
+            "brightPurple": "#FF92DF",
+            "brightRed": "#FF6E6E",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFFA5"
         }
     ],
 
