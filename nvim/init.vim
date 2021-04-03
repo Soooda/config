@@ -213,7 +213,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Indent Guide
 " Plug 'glepnir/indent-guides.nvim'
 Plug 'Yggdroot/indentLine'
-Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Rainbow Brackets
 Plug 'luochen1990/rainbow'
@@ -374,6 +374,7 @@ let g:coc_global_extensions = [
     \ 'coc-explorer',
     \ 'coc-lists',
     \ 'coc-gitignore',
+    \ 'coc-pyright',
     \ 'coc-java',
     \ 'coc-html',
     \ 'coc-pairs',
