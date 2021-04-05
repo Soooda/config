@@ -175,6 +175,30 @@ noremap <silent>sh :set splitright<CR>:vsplit<CR>
 noremap <silent>sv :set splitbelow<CR>:split<CR>
 noremap <silent>st :tabnew<CR>
 
+" Compile Function
+noremap <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!time java %<"
+    elseif &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        set splitbelow
+        :sp
+        :term python3 %
+    elseif &filetype == 'go'
+        set splitbelow
+        :sp
+        :term go run .
+    endif
+endfunc
+
+
 " ===
 " === Plugins
 " ===
