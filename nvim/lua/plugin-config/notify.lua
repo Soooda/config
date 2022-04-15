@@ -1,5 +1,3 @@
-local M = {}
-
 local defaults = {
   opts = {
     ---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
@@ -34,16 +32,12 @@ local defaults = {
   },
 }
 
-function M.setup()
-    if #vim.api.nvim_list_uis() == 0 then
-        -- no need to configure notifications in headless
-        return
-    end
-
-    local notify = require "notify"
-
-    notify.setup(opts)
-    vim.notify = notify
+if #vim.api.nvim_list_uis() == 0 then
+    -- no need to configure notifications in headless
+    return
 end
 
-return M
+local notify = require "notify"
+
+notify.setup(opts)
+vim.notify = notify

@@ -1,14 +1,4 @@
-local M = {}
+local autopairs = require "nvim-autopairs"
+local Rule = require "nvim-autopairs.rule"
 
-local opt = {
-    check_ts = true
-}
-
-M.setup = function()
-    local autopairs = require "nvim-autopairs"
-    local Rule = require "nvim-autopairs.rule"
-
-    autopairs.setup(opt)
-end
-
-return M
+autopairs.setup(opt)

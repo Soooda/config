@@ -1,5 +1,3 @@
-local M = {}
-
 local opt = {
     ---Add a space b/w comment and the line
     ---@type boolean|fun():boolean
@@ -69,9 +67,5 @@ local opt = {
     post_hook = nil,
 }
 
-M.setup = function()
-    local comment = require('Comment')
-    comment.setup(opt)
-end
-
-return M
+local comment = require('Comment')
+comment.setup(opt)

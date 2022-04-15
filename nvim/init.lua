@@ -10,9 +10,10 @@ Author: @Soooda
 --vim.cmd('color catppuccin')
 vim.cmd('color dracula')
 
-require("plugin-config"):load()
+require("plugin-config")
 require("plugins")
 require("builtins")
+require("lsp")
 
 -- Restore cursor position
 vim.cmd[[ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]

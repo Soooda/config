@@ -76,7 +76,8 @@ keymap('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 keymap('', ';', ':', opts) -- Colon shortcut
-keymap('', 'Q', ':q<cr>', opts) -- Quit
+-- keymap('', 'Q', ':q<cr>', opts) -- Quit
+keymap('', 'Q', '<cmd>lua require("utils").close_buffer()<cr>', opts) -- Quit
 keymap('', 'S', ':w<cr>', opts) -- Save
 keymap('', 'U', '<C-r>', opts) -- Redo
 keymap('', 'R', ':source $MYVIMRC<cr>', opts) -- Reload vimrc

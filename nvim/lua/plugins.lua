@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
         as = "catppuccin"
     })
 
+    use 'kyazdani42/nvim-web-devicons' -- Icons
     use 'lewis6991/impatient.nvim' -- Fast start up
     use 'windwp/nvim-autopairs' -- Autopairs
     use 'numToStr/Comment.nvim' -- Comment
@@ -34,12 +35,22 @@ return require('packer').startup(function(use)
     use 'yamatsum/nvim-cursorline' -- Cursor line
     use 'xiyaowong/nvim-transparent' -- Transparent Background
     use 'norcalli/nvim-colorizer.lua' -- Color Code Highlighting
-    use 'kyazdani42/nvim-web-devicons' -- Icons
     use 'folke/which-key.nvim' -- Which-key
     use 'simrat39/symbols-outline.nvim' -- Tags
     use 'kyazdani42/nvim-tree.lua' -- File Explorer
     use 'lewis6991/gitsigns.nvim' -- Git Signs
     use 'akinsho/bufferline.nvim' -- Buffer Line
+    use 'nvim-lualine/lualine.nvim' -- Lua Line
+
+    -- Auto Complete
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    -- Snippets
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 
     -- Treesitter
     use {
