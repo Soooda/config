@@ -73,7 +73,6 @@ ZSH_THEME="ys"
 plugins=(
     git
     colored-man-pages
-    vi-mode
     zsh-syntax-highlighting
     zsh-autosuggestions
 )
@@ -81,12 +80,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Plugin Configuration
-# vi-mode
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-
 # zsh-autosuggestions
 # bindkey '^ ' autosuggest-accept
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#484848"
 
 # User Configuration
 export VISUAL=nvim
@@ -117,10 +113,9 @@ if [ -n "$RANGER_LEVEL"  ]; then export PS1="[Spawned by Ranger]$PS1"; fi # Rang
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias s="neofetch"
-alias vi="\vim"
-alias vim="\nvim"
 alias lg="lazygit"
 alias ra="ranger"
+alias vim="nvim"
 
 # Startup Commands
 neofetch
