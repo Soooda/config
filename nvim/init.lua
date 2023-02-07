@@ -161,6 +161,12 @@ vim.o.scrolloff = 4
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+-- Set Tab Stop
+vim.o.tabstop = 4
+
+-- Set using the system clipboard
+vim.go.clipboard = "unnamedplus"
+
 -- Restore cursor position
 vim.cmd [[ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]
 
@@ -365,11 +371,12 @@ require('Comment').setup()
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
   signs = {
-    add = { text = '+' },
+    add = { text = '▎' },
     change = { text = '░' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
+    delete = { text = '▏' },
+    topdelete = { text = '▔' },
+    changedelete = { text = '▒' },
+    untracked    = { text = '+' },
   },
 }
 --[[ accelerated-jk.nvim ]]
@@ -568,6 +575,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  pyright = {},
 }
 
 -- Setup neovim lua configuration
