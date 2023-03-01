@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/soda/.oh-my-zsh"
@@ -73,7 +74,6 @@ ZSH_THEME="ys"
 plugins=(
     git
     colored-man-pages
-    vi-mode
     zsh-syntax-highlighting
     zsh-autosuggestions
 )
@@ -81,12 +81,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Plugin Configuration
-# vi-mode
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-
 # zsh-autosuggestions
 # bindkey '^ ' autosuggest-accept
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#484848"
 
 # User configuration
 export VISUAL=nvim
@@ -118,10 +115,9 @@ if [ -n "$RANGER_LEVEL" ]; then export PS1="[Spawned by Ranger]$PS1"; fi # Range
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias s="neofetch"
-alias vi="\vim"
-alias vim="\nvim"
 alias lg="lazygit"
 alias ra="ranger"
+alias vim="nvim"
 
 # Startup Commands
 neofetch
