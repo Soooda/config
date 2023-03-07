@@ -1,6 +1,15 @@
 # My Configuration Setups
 All the cool kids have their own configs :DD
 
+## Handy DNS
+```
+119.29.29.29
+
+# Google
+8.8.8.8
+8.8.4.4
+```
+
 ## Oh-My-Zsh Plugins
 
 ```bash
