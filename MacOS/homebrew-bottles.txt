@@ -1,0 +1,30 @@
+# Formulae
+exiftool
+git-lfs
+gotop
+htop
+neofetch
+neovim
+node
+lazygit
+lf
+
+# Cask
+blender
+rar
+obs
+miniconda
+quicklook-json
+cheatsheet
+zoom
+discord
+adrive
+notion
+adobe-dng-converter
+aldente
+playcover-community
+dropbox
+
+# Fonts
+# brew tap homebrew/cask-fonts
+font-hack-nerd-font
