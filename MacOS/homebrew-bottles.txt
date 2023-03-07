@@ -24,6 +24,8 @@ adobe-dng-converter
 aldente
 playcover-community
 dropbox
+adobe-creative-cloud
+google-chrome
 
 # Fonts
 # brew tap homebrew/cask-fonts
