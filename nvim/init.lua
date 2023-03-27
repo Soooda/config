@@ -4,6 +4,7 @@
 | |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
 | |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
 |_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
+
 Author: @Soooda
 --]]
 
@@ -165,7 +166,7 @@ vim.o.splitbelow = true
 vim.o.tabstop = 4
 
 -- Set using the system clipboard
-vim.go.clipboard = "unnamedplus"
+-- vim.go.clipboard = "unnamedplus"
 
 -- Restore cursor position
 vim.cmd [[ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]
@@ -258,6 +259,15 @@ vim.keymap.set('n', 'sv', ':set splitbelow<cr>:split<CR>', { silent = true, desc
 
 -- Press s + t to spawn a new tab
 vim.keymap.set('n', 'st', ':tabnew<CR>', { silent = true, desc = "[S]pawn a new [T]ab" })
+
+-- Press <LEADER> + y to yank to the system clipboard
+vim.keymap.set({ 'n', 'v' }, '<LEADER>y', '"+y', { silent = true, desc = "[Y]ank to the system clipboard" })
+vim.keymap.set('n', '<LEADER>Y', '"+yg_', { silent = true, desc = "[Y]ank line without \n" })
+vim.keymap.set('n', '<LEADER>yy', '"+yy', { silent = true, desc = "[Y]ank line with \n" })
+
+-- Press <LEADER> + p to paste from the system clipboard
+vim.keymap.set({ 'n', 'v' }, '<LEADER>p', '"+p', { silent = true, desc = "[P]aste after from the system clipboard" })
+vim.keymap.set({ 'n', 'v' }, '<LEADER>P', '"+P', { silent = true, desc = "[P]aste before from the system clipboard" })
 
 -- Highlight on yank
 -- See `:help vim.highlight.on_yank()`
@@ -575,6 +585,7 @@ local servers = {
     },
   },
   pyright = {},
+  jdtls = {},
 }
 
 -- Setup neovim lua configuration
