@@ -1,0 +1,357 @@
+version: 3
+profiles:
+  - type: ssh
+    name: AutoDL GPUs
+    icon: fas fa-desktop
+    options:
+      host: region-5.autodl.com
+      port: 37991
+      algorithms: {}
+      auth: password
+    weight: -1
+    id: ssh:custom:AutoDL-GPUs:19a3304c-4507-44c0-b85a-7c5f20348705
+  - type: ssh
+    name: USYD-Artemis
+    icon: fas fa-desktop
+    options:
+      host: hpc.sydney.edu.au
+      user: lkon0010
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    id: ssh:custom:USYD-Artemis:732cd3b2-cfbf-42a3-966e-daf01d1f48ec
+  - type: local
+    name: Anaconda PowerShell
+    options:
+      command: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+      env:
+        TERM: cygwin
+      args:
+        - '-ExecutionPolicy'
+        - ByPass
+        - '-NoExit'
+        - '-Command'
+        - >-
+          & 'C:\Users\Hilbert\anaconda3\shell\condabin\conda-hook.ps1' ; conda
+          activate 'C:\Users\Hilbert\anaconda3' 
+    icon: fab fa-python
+    id: local:custom:Anaconda-PowerShell:55198120-2553-4d44-af5a-5ceb9a4b8673
+  - type: local
+    name: WSL2 OpenSUSE Tumbleweed
+    options:
+      command: C:\WINDOWS\system32\wsl.exe
+      env: {}
+      cwd: \\wsl.localhost\openSUSE-Tumbleweed\home\soda
+      args: []
+    icon: fab fa-500px
+    color: '#73BA25'
+    id: local:custom:WSL2-OpenSUSE-Tumbleweed:54581c2a-983a-48d9-b1d6-4dc3a5f6f9b1
+  - type: ssh
+    name: USYD GPU
+    icon: fas fa-desktop
+    options:
+      host: gpux4.cs.usyd.edu.au
+      user: lkon0010
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      auth: password
+      scripts: []
+      forwardedPorts: []
+    weight: -1
+    id: ssh:custom:USYD-GPU:fd296f75-7540-4d46-b9f4-0eba1578b564
+hotkeys:
+  toggle-window: []
+  copy-current-path: []
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - Ctrl-Shift-C
+  paste:
+    - Ctrl-Shift-V
+    - Shift-Insert
+  select-all:
+    - Ctrl-Shift-A
+  clear: []
+  zoom-in:
+    - Ctrl-=
+    - Ctrl-Shift-=
+  zoom-out:
+    - Ctrl--
+    - Ctrl-Shift--
+  reset-zoom:
+    - Ctrl-0
+  home:
+    - Home
+  end:
+    - End
+  previous-word:
+    - Ctrl-Left
+  next-word:
+    - Ctrl-Right
+  delete-previous-word:
+    - Ctrl-Backspace
+  delete-next-word:
+    - Ctrl-Delete
+  search:
+    - Ctrl-Shift-F
+  pane-focus-all:
+    - Ctrl-Shift-I
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  settings:
+    - Ctrl-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  new-window:
+    - Ctrl-Shift-N
+  new-tab:
+    - Ctrl-Shift-T
+  profile: {}
+  profile-selectors: {}
+  toggle-fullscreen:
+    - F11
+    - Alt-Enter
+  close-tab:
+    - Ctrl-Shift-W
+  reopen-tab:
+    - Ctrl-Shift-T
+  toggle-last-tab: []
+  rename-tab:
+    - Ctrl-Shift-R
+  next-tab:
+    - Ctrl-Shift-Right
+    - Ctrl-Tab
+  previous-tab:
+    - Ctrl-Shift-Left
+    - Ctrl-Shift-Tab
+  move-tab-left:
+    - Ctrl-Shift-PageUp
+  move-tab-right:
+    - Ctrl-Shift-PageDown
+  rearrange-panes:
+    - Ctrl-Shift
+  duplicate-tab: []
+  tab-1:
+    - Alt-1
+  tab-2:
+    - Alt-2
+  tab-3:
+    - Alt-3
+  tab-4:
+    - Alt-4
+  tab-5:
+    - Alt-5
+  tab-6:
+    - Alt-6
+  tab-7:
+    - Alt-7
+  tab-8:
+    - Alt-8
+  tab-9:
+    - Alt-9
+  tab-10:
+    - Alt-0
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - Ctrl-Shift-E
+  split-bottom:
+    - Ctrl-Shift-D
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - Ctrl-Alt-Right
+  pane-nav-down:
+    - Ctrl-Alt-Down
+  pane-nav-up:
+    - Ctrl-Alt-Up
+  pane-nav-left:
+    - Ctrl-Alt-Left
+  pane-nav-previous:
+    - Ctrl-Alt-[
+  pane-nav-next:
+    - Ctrl-Alt-]
+  pane-maximize:
+    - Ctrl-Alt-Enter
+  close-pane: []
+  switch-profile:
+    - Ctrl-Alt-T
+  profile-selector:
+    - Ctrl-Shift-T
+  scroll-to-bottom: []
+  settings-tab: {}
+  explode-tab:
+    - ⌘-Shift-.
+  combine-tabs:
+    - ⌘-Shift-,
+  combine-tab:
+    - Ctrl-Shift-,
+terminal:
+  searchOptions: {}
+  colorScheme:
+    name: Dracula+
+    foreground: '#f8f8f2'
+    background: '#212121'
+    cursor: '#ECEFF4'
+    colors:
+      - '#21222C'
+      - '#ff5555'
+      - '#50fa7b'
+      - '#ffcb6b'
+      - '#82aaff'
+      - '#c792ea'
+      - '#8BE9FD'
+      - '#F8F8F2'
+      - '#656565'
+      - '#FF6E6E'
+      - '#69FF94'
+      - '#FFCB6B'
+      - '#D6ACFF'
+      - '#FF92DF'
+      - '#A4FFFF'
+      - '#F8F8F2'
+  font: Hack NF
+  profile: local:custom:WSL2-OpenSUSE-Tumbleweed:54581c2a-983a-48d9-b1d6-4dc3a5f6f9b1
+  bell: audible
+  customColorSchemes:
+    - name: Dracula+
+      foreground: '#f8f8f2'
+      background: '#212121'
+      cursor: '#ECEFF4'
+      colors:
+        - '#21222C'
+        - '#ff5555'
+        - '#50fa7b'
+        - '#ffcb6b'
+        - '#82aaff'
+        - '#c792ea'
+        - '#8BE9FD'
+        - '#F8F8F2'
+        - '#656565'
+        - '#FF6E6E'
+        - '#69FF94'
+        - '#FFCB6B'
+        - '#D6ACFF'
+        - '#FF92DF'
+        - '#A4FFFF'
+        - '#F8F8F2'
+  fontSize: 18
+  fallbackFont: Menlo
+  scrollbackLines: 1314520
+  hideTabIndex: true
+  ligatures: true
+  showBuiltinProfiles: false
+  showRecentProfiles: 0
+  cursor: beam
+ssh:
+  warnOnClose: true
+  knownHosts:
+    - host: gpux4.cs.usyd.edu.au
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: co51Y5ozNivmVymvtoAeNcDhKi0ZvPMSFpwQuXbv+AY=
+    - host: hpc.sydney.edu.au
+      port: 22
+      type: ssh-rsa
+      digest: qq9FPWBcyvvOWOMdFs8uZES0tF3SVzJsNx1cdn56GSE=
+    - host: region-5.autodl.com
+      port: 37991
+      type: ecdsa-sha2-nistp256
+      digest: 609WWJHX/ZECstK5Z+d5oyvw8pN7MvQffuKBYeFqCKk=
+clickableLinks: {}
+appearance: {}
+hacks: {}
+enableAnalytics: false
+enableWelcomeTab: false
+pluginBlacklist: []
+profileDefaults: {}
+recoverTabs: false
+enableAutomaticUpdates: false
+web: {}
+electronFlags:
+  - - force_discrete_gpu
+    - '0'
+configSync:
+  parts: {}
