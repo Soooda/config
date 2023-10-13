@@ -1,4 +1,4 @@
-version: 3
+version: 6
 profiles:
   - type: ssh
     name: AutoDL GPUs
@@ -268,6 +268,34 @@ hotkeys:
     - ⌘-Shift-,
   combine-tab:
     - Ctrl-Shift-,
+  delete-line:
+    - Ctrl-Shift-Backspace
+  focus-all-tabs:
+    - Ctrl-Alt-Shift-I
+  scroll-to-top:
+    - Ctrl-PageUp
+  scroll-up:
+    - Alt-PageUp
+  scroll-down:
+    - Alt-PageDown
+  restart-tab: []
+  reconnect-tab: []
+  disconnect-tab: []
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-increase-vertical: []
+  pane-decrease-vertical: []
+  pane-increase-horizontal: []
+  pane-decrease-horizontal: []
+  command-selector:
+    - Ctrl-Shift-P
 terminal:
   searchOptions: {}
   colorScheme:
@@ -293,7 +321,7 @@ terminal:
       - '#A4FFFF'
       - '#F8F8F2'
   font: Hack NF
-  profile: local:custom:WSL2-OpenSUSE-Tumbleweed:54581c2a-983a-48d9-b1d6-4dc3a5f6f9b1
+  profile: local:binzsh
   bell: audible
   customColorSchemes:
     - name: Dracula+
@@ -325,6 +353,28 @@ terminal:
   showBuiltinProfiles: false
   showRecentProfiles: 0
   cursor: beam
+  lightColorScheme:
+    name: Tabby Default Light
+    foreground: '#4d4d4c'
+    background: '#ffffff'
+    cursor: '#4d4d4c'
+    colors:
+      - '#000000'
+      - '#c82829'
+      - '#718c00'
+      - '#eab700'
+      - '#4271ae'
+      - '#8959a8'
+      - '#3e999f'
+      - '#ffffff'
+      - '#000000'
+      - '#c82829'
+      - '#718c00'
+      - '#eab700'
+      - '#4271ae'
+      - '#8959a8'
+      - '#3e999f'
+      - '#ffffff'
 ssh:
   warnOnClose: true
   knownHosts:
@@ -341,7 +391,9 @@ ssh:
       type: ecdsa-sha2-nistp256
       digest: 609WWJHX/ZECstK5Z+d5oyvw8pN7MvQffuKBYeFqCKk=
 clickableLinks: {}
-appearance: {}
+appearance:
+  spaciness: 0.8
+  lastTabClosesWindow: true
 hacks: {}
 enableAnalytics: false
 enableWelcomeTab: false
@@ -355,3 +407,7 @@ electronFlags:
     - '0'
 configSync:
   parts: {}
+groups: []
+accessibility: {}
+providerBlacklist: []
+profileBlacklist: []
