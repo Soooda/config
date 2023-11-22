@@ -7,8 +7,6 @@
 
 Author: @Soooda
 --]]
-
-
 --[[
 -- ==============================Plugins========================================
 --]]
@@ -57,19 +55,21 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
-  use 'lewis6991/gitsigns.nvim' -- Display git symbols for changes
-  use 'Mofiqul/dracula.nvim' -- My Favourite Theme
+  use 'lewis6991/gitsigns.nvim'             -- Display git symbols for changes
+  use 'Mofiqul/dracula.nvim'                -- My Favourite Theme
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'windwp/nvim-autopairs' -- Auto enclose brackets
-  use 'rainbowhxch/accelerated-jk.nvim' -- Improve j/k scrolling speed
-  use 'yamatsum/nvim-cursorline' -- Display cursor line
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-sleuth' -- Automatically set tab information based on the file opened
-  use 'nvim-tree/nvim-web-devicons' -- Icons
-  use 'nvim-lualine/lualine.nvim' -- Status line
-  use 'norcalli/nvim-colorizer.lua' -- Colorizer
-  use 'folke/which-key.nvim' -- Which-key
-  use 'ojroques/nvim-scrollbar' -- Scroll Bar
+  use 'windwp/nvim-autopairs'               -- Auto enclose brackets
+  use 'rainbowhxch/accelerated-jk.nvim'     -- Improve j/k scrolling speed
+  use 'yamatsum/nvim-cursorline'            -- Display cursor line
+  use 'numToStr/Comment.nvim'               -- "gc" to comment visual regions/lines
+  use 'tpope/vim-sleuth'                    -- Automatically set tab information based on the file opened
+  use 'nvim-tree/nvim-web-devicons'         -- Icons
+  use 'nvim-lualine/lualine.nvim'           -- Status line
+  use 'norcalli/nvim-colorizer.lua'         -- Colorizer
+  use 'folke/which-key.nvim'                -- Which-key
+  use 'ojroques/nvim-scrollbar'             -- Scroll Bar
+  use 'nvim-tree/nvim-tree.lua'             -- File explorer
+  use 'akinsho/toggleterm.nvim'             -- Toggle terminal
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -289,9 +289,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
-
   highlight = { enable = true },
-  indent = { enable = true, disable = { 'python' } },
+  indent = { enable = true },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -350,7 +349,8 @@ require('nvim-treesitter.configs').setup {
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
   char = '┊',
-  show_trailing_blankline_indent = false,
+  show_trailing_blankline_indent = true,
+  show_first_indent_level = false,
   use_treesitter = true,
   show_current_context = true,
   show_current_context_start = true,
@@ -381,10 +381,10 @@ require('Comment').setup()
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
   signs = {
-    add = { text = '▎' },
-    change = { text = '░' },
-    delete = { text = '▏' },
-    topdelete = { text = '▔' },
+    add          = { text = '▎' },
+    change       = { text = '░' },
+    delete       = { text = '▏' },
+    topdelete    = { text = '▔' },
     changedelete = { text = '▒' },
     untracked    = { text = '+' },
   },
@@ -410,7 +410,7 @@ require('lualine').setup {
     component_separators = '│',
     section_separators = ' ',
     disabled_filetypes = {
-      statusline = {},
+      statusline = { 'NvimTree' },
       winbar = {},
     },
     ignore_focus = {},
@@ -458,8 +458,8 @@ require('nvim-web-devicons').setup {
 }
 -- [[ nvim-colorizer.lua ]]
 require('colorizer').setup({
-  '*'; -- Highlight all files
-  css = { css = true };
+  '*', -- Highlight all files
+  css = { css = true },
 }, { mode = 'background' })
 --[[ which-key.nvim ]]
 vim.o.timeout = true
@@ -474,9 +474,9 @@ wk.setup {
 -- [[ nvim-scrollbar ]]
 require('scrollbar').setup {
   symbol_bar = { ' ', 'Search' }, -- Bar symbol and highlight group
-  priority = 10, -- Priority of scrollbar (low value = high priority)
-  exclude_buftypes = {}, -- Buftypes to exclude
-  exclude_filetypes = { -- Filetypes to exclude
+  priority = 10,                  -- Priority of scrollbar (low value = high priority)
+  exclude_buftypes = {},          -- Buftypes to exclude
+  exclude_filetypes = {           -- Filetypes to exclude
     'qf',
   },
   render_events = { -- Events triggering the redraw of the bar
@@ -523,6 +523,18 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
+-- [[ nvim-tree.lua ]]
+require("nvim-tree").setup({
+  hijack_cursor = false,
+})
+vim.keymap.set({ 'n', 'v' }, '<F1>', ":NvimTreeToggle<CR>", { desc = 'Toggle Nvim-tree' })
+
+-- [[ toggleterm ]]
+require('toggleterm').setup({
+  open_mapping = '<F2>',
+  direction = 'float',
+  shade_terminals = true,
+})
 
 --[[
 -- ========================LSP and Auto Completion==============================
@@ -586,6 +598,8 @@ local servers = {
   },
   pyright = {},
   jdtls = {},
+  tsserver = {},
+  clangd = {},
 }
 
 -- Setup neovim lua configuration
@@ -632,6 +646,17 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
 cmp.setup {
+  window = {
+    completion = { -- rounded border; thin-style scrollbar
+      border = 'single',
+      scrollbar = '║',
+    },
+    documentation = { -- no border; native-style scrollbar
+      border = 'rounded',
+      scrollbar = '',
+      -- other options
+    },
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -678,6 +703,5 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Go to the 
 --[[
 -- ===================================End=======================================
 --]]
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
