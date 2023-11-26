@@ -725,6 +725,53 @@ require("lazy").setup({
 			vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Go to the previous diagnosis" })
 		end,
 	},
+	-- Squeeze and unsqueeze json-like list
+	{
+		'Wansmer/treesj',
+		lazy = true,
+		event = "VeryLazy",
+		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		opts = {
+			use_default_keymaps = false,
+		},
+		config = function ()
+			vim.keymap.set('n', '<leader>m', require('treesj').toggle, { desc = "Toggle squeezing json-like structure" })
+		end,
+	},
+	-- Buffer line
+	{
+		'akinsho/bufferline.nvim',
+		version = "*",
+		lazy = true,
+		event = "VeryLazy",
+		dependencies = 'nvim-tree/nvim-web-devicons',
+		opts = {
+			options = {
+				mode = "tabs",
+				numbers = "none",
+				indicator = {
+					icon = "",
+					style = "icon",
+				},
+				diagnostics = "nvim_lsp",
+				offsets = {
+					{
+						filetype = "neo-tree",
+						text = "File Explorer",
+						text_align = "center",
+						separator = true,
+					},
+				},
+				show_close_icon = false,
+				hover = {
+					enabled = true,
+					delay = 200,
+					reveal = { "close" },
+				},
+				separator_style = "thin",
+			},
+		},
+	}
 }, {
 	-- lazy.nvim settings
 	ui = {
