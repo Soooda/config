@@ -76,7 +76,6 @@ vim.o.shiftwidth = 4
 -- Restore cursor position
 vim.cmd [[ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]
 
-
 --[[
 -- ==============================Basic Keymaps=================================
 --]]
@@ -218,26 +217,13 @@ require("lazy").setup({
 	},
 	-- Scroll Bar
 	{
-		"ojroques/nvim-scrollbar",
+		"dstein64/nvim-scrollview",
 		lazy = true,
 		event = "VeryLazy",
 		opts = {
-			symbol_bar = { '*', 'Search' }, -- Bar symbol and highlight group
-			priority = 10,         -- Priority of scrollbar (low value = high priority)
-			exclude_buftypes = {}, -- Buftypes to exclude
-			exclude_filetypes = {  -- Filetypes to exclude
-				'qf',
-			},
-			render_events = { -- Events triggering the redraw of the bar
-				'BufWinEnter',
-				'CmdwinLeave',
-				'TabEnter',
-				'TermEnter',
-				'TextChanged',
-				'VimResized',
-				'WinEnter',
-				'WinScrolled',
-			},
+			excluded_filetypes = {'neo-tree'},
+			current_only = true,
+			diagnostics_severities = {vim.diagnostic.severity.ERROR}
 		},
 	},
 	-- Icons
