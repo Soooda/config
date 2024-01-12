@@ -223,7 +223,11 @@ require("lazy").setup({
 		opts = {
 			excluded_filetypes = {'neo-tree'},
 			current_only = true,
-			diagnostics_severities = {vim.diagnostic.severity.ERROR}
+			base = 'right',
+			column = 1,
+			winblend = 50,
+			signs_on_startup = {'all'},
+			diagnostics_severities = {vim.diagnostic.severity.ERROR},
 		},
 	},
 	-- Icons
@@ -736,7 +740,7 @@ require("lazy").setup({
 				mode = "tabs",
 				numbers = "none",
 				indicator = {
-					icon = "",
+					icon = "*",
 					style = "icon",
 				},
 				diagnostics = "nvim_lsp",
