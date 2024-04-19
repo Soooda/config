@@ -226,6 +226,7 @@ require("lazy").setup({
 			base = 'right',
 			column = 1,
 			winblend = 50,
+			winblend_gui = 50,
 			signs_on_startup = {'all'},
 			diagnostics_severities = {vim.diagnostic.severity.ERROR},
 		},
@@ -608,7 +609,19 @@ require("lazy").setup({
 						telemetry = { enable = false },
 					},
 				},
-				pyright = {},
+				pyright = {
+					pyright = {
+						autoImportCompletion = true,
+					},
+					python = {
+						analysis = {
+							autoSearchPaths = true,
+							diagnosticMode = 'openFilesOnly',
+							useLibraryCodeForTypes = true,
+							typeCheckingMode = 'off',
+						}
+					},
+				},
 				jdtls = {},
 				tsserver = {},
 				clangd = {},
@@ -740,7 +753,7 @@ require("lazy").setup({
 				mode = "tabs",
 				numbers = "none",
 				indicator = {
-					icon = "*",
+					icon = " * ",
 					style = "icon",
 				},
 				diagnostics = "nvim_lsp",
