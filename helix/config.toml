@@ -1,0 +1,95 @@
+theme = "dracula"
+
+[editor]
+scrolloff = 5
+mouse = true
+middle-click-paste = false
+scroll-lines = 3
+shell = ["sh", "-c"]
+line-number = "absolute"
+cursorline = true
+cursorcolumn = true
+true-color = true
+bufferline = "multiple"
+color-modes = true
+popup-border = "all"
+
+[editor.statusline]
+left = ["mode", "position", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "version-control"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable = true
+display-messages = true
+auto-signature-help = true
+display-inlay-hints = false
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[editor.whitespace.render]
+space = "none"
+tab = "none"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+
+[editor.indent-guides]
+render = true
+character = "┆"
+skip-levels = 1
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.gutters.line-numbers]
+min-width = 1
+
+[editor.soft-wrap]
+enable = false
+max-wrap = 20 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 40
+wrap-indicator = "↪"  # set wrap-indicator to "" to hide it
+wrap-at-text-width = false
+
+[keys.normal]
+Q = ":q"
+S = ":w"
+";" = "command_mode"
+H = "goto_line_start"
+L = "goto_line_end"
+"`" = "switch_case"
+"~" = "switch_to_lowercase"
