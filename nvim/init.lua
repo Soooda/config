@@ -495,7 +495,7 @@ require("lazy").setup({
 			vim.o.timeoutlen = 300
 		end,
 		opts = {
-			window = {
+			win = {
 				border = "rounded",
 				margin = { 0.7, 0, 1, 0.6 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
 				padding = { 0, 0, 0, 0 }, -- extra window padding [top, right, bottom, left]
