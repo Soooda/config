@@ -28,5 +28,4 @@ adobe-creative-cloud
 google-chrome
 
 # Fonts
-# brew tap homebrew/cask-fonts
-font-hack-nerd-font
+brew install font-hack-nerd-font

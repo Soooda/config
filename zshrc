@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/soda/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -82,7 +82,6 @@ source $ZSH/oh-my-zsh.sh
 # Plugin Configuration
 # zsh-autosuggestions
 # bindkey '^ ' autosuggest-accept
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#484848"
 
 # User Configuration
 export VISUAL=nvim
@@ -115,6 +114,7 @@ if [ -n "$RANGER_LEVEL"  ]; then export PS1="[Spawned by Ranger]$PS1"; fi # Rang
 alias s="neofetch"
 alias lg="lazygit"
 alias ra="ranger"
+alias vi="\vim"
 alias vim="nvim"
 
 # Startup Commands
