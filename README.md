@@ -24,6 +24,15 @@ xcode-select --install
 defaults write -g AppleKeyboardUIMode -int 3
 ```
 
+VSCode Vim Plugin Enable key-reapting
+
+```bash
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+# If necessary, reset global default
+defaults delete -g ApplePressAndHoldEnabled
+```
+
 ### Fonts
 
 ```bash

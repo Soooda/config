@@ -1,0 +1,214 @@
+{
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "Hack Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "workbench.startupEditor": "none",
+
+    // Catppuccin's semantic highlighting
+    "editor.semanticHighlighting.enabled": true,
+    // prevent VSCode from modifying the terminal colors
+    "terminal.integrated.minimumContrastRatio": 1,
+    // make the window's titlebar use the workbench colors
+    "window.titleBarStyle": "custom",
+    // Set to `true` to disable folding arrows next to folder icons.
+    "catppuccin-icons.hidesExplorerArrows": false,
+    // Set to `false` to only use the default folder icon.
+    "catppuccin-icons.specificFolders": true,
+    // Set to `true` to only use the `text` fill color for all icons.
+    "catppuccin-icons.monochrome": false,
+
+    // "gopls": {
+    //     // Catppuccin's opt-in option
+    //     "ui.semanticTokens": true,
+    // },
+
+    // Vim Plugin Configuration
+    "vim.disableExtension": false,
+    "vim.useSystemClipboard": true,
+    "vim.enableNeovim": true,
+    "vim.neovimUseConfigFile": true,
+    "vim.easymotion": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [";"],
+            "after": [":"],
+        },
+        {
+            "before": ["S"],
+            "commands": [":w"],
+        },
+        {
+            "before": ["Q"],
+            "commands": [":q"],
+        },
+        {
+            "before": ["R"],
+            "commands": ["settings.json"],
+        },
+        {
+            "before": ["U"],
+            "after": ["<C-r>"],
+        },
+        {
+            "before": ["H"],
+            "after": ["0"],
+        },
+        {
+            "before": ["L"],
+            "after": ["$"],
+        },
+        {
+            "before": ["J"],
+            "after": ["2", "0", "j"],
+        },
+        {
+            "before": ["K"],
+            "after": ["2", "0", "k"],
+        },
+        {
+            "before": ["<leader>", "<cr>"],
+            "commands": [":nohlsearch"],
+        },
+        {
+            "before": ["-"],
+            "after": ["N", "z", "z"],
+        },
+        {
+            "before": ["="],
+            "after": ["n", "z", "z"],
+        },
+        {
+            "before": ["`"],
+            "after": ["~"],
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"],
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"],
+        },
+        {
+            "before": ["<up>"],
+            "commands": [":res +5"],
+        },
+        {
+            "before": ["<down>"],
+            "commands": [":res -5"],
+        },
+        {
+            "before": ["<left>"],
+            "commands": [":vertical resize -5"],
+        },
+        {
+            "before": ["<right>"],
+            "commands": [":vertical resize +5"],
+        },
+        {
+            "before": ["<leader>", "h"],
+            "after": ["<C-w>", "h"],
+        },
+        {
+            "before": ["<leader>", "j"],
+            "after": ["<C-w>", "j"],
+        },
+        {
+            "before": ["<leader>", "k"],
+            "after": ["<C-w>", "k"],
+        },
+        {
+            "before": ["<leader>", "l"],
+            "after": ["<C-w>", "l"],
+        },
+        {
+            "before": ["<leader>", "<leader>", "h"],
+            "after": ["<C-w>", "H"],
+        },
+        {
+            "before": ["<leader>", "<leader>", "J"],
+            "after": ["<C-w>", "J"],
+        },
+        {
+            "before": ["<leader>", "1"],
+            "after": ["1", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "2"],
+            "after": ["2", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "3"],
+            "after": ["3", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "4"],
+            "after": ["4", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "5"],
+            "after": ["5", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "6"],
+            "after": ["6", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "7"],
+            "after": ["7", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "8"],
+            "after": ["8", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "9"],
+            "after": ["9", "g", "t"],
+        },
+        {
+            "before": ["<leader>", "0"],
+            "commands": [":tabo"],
+        },
+        {
+            "before": ["s", "h"],
+            "commands": [":vsplit"],
+        },
+        {
+            "before": ["s", "v"],
+            "commands": [":split"],
+        },
+        {
+            "before": ["s", "t"],
+            "commands": [":tabnew"],
+        },
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["s"],
+            "after": ["<nop>"],
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"],
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"],
+        },
+        {
+            "before": ["<leader>", "<cr>"],
+            "commands": [":nohlsearch"],
+        },
+    ],
+    // To improve performance
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1,
+    },
+    "security.workspace.trust.untrustedFiles": "open"
+}
