@@ -2,18 +2,14 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
-add_newline = false
+add_newline = true
 
 format = """
-╭\
-\\[\
+$os\
 $username\
 $hostname\
-\\]\
 $directory\
 $git_branch\
-$cmd_duration\
-$fill\
 (\
 $bun\
 $c\
@@ -33,146 +29,55 @@ $rlang\
 $ruby\
 $rust\
 $scala\
--)\
+)\
 $container\
-$os\
-$battery\
+\\[\
 $time\
+\\]\
+$battery\
+$cmd_duration\
 $linebreak
-╰\
 $character\
 """
 
 [character]
 success_symbol = '[➜](bold green)'
 error_symbol = '[➜](bold red)'
-# Replace the '❯' symbol in the prompt with '➜'
-#success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
 [cmd_duration]
-min_time = 0
+disabled = false
 format = '\( [$duration]($style)\)'
+min_time = 5000
 
 [username]
 disabled = false
 show_always = true
 format = '[$user]($style)'
-style_user = "white bold"
+style_user = "green bold"
 style_root = "red bold"
 aliases = {} #{ "soda" = "hilbert" }
 
 [hostname]
-format = '@[$hostname$ssh_symbol]($style)'
+format = '@[$hostname$ssh_symbol]($style) '
+ssh_only = false
 ssh_symbol = ''
 
 [directory]
-format = '\[[$path]($style)[($read_only)]($read_only_style)\]'
+format = 'in [$path]($style)[($read_only)]($read_only_style) '
 read_only = '!'
+truncate_to_repo = false
 
 [git_branch]
-format = '\([$symbol$branch(:$remote_branch)]($style)\)'
+format = 'on [$symbol$branch(:$remote_branch)]($style) '
 symbol = ' '
 
 [fill]
-symbol = '─'
-
-[bun]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[c]
-format = '\([$symbol($name:)$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[cmake]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[dart]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[dotnet]
-format = '\([$symbol$version(:$tfm)]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[golang]
-format = '\([$symbol$version(<$mod_version)]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[gradle]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[java]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[kotlin]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[lua]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[nodejs]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[package]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[php]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[python]
-format = '\([$symbol$pyenv_prefix$version(\($virtualenv\))]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[rlang]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[ruby]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[rust]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[scala]
-format = '\([$symbol$version]($style)\)'
-symbol = ' '
-version_format = '${raw}'
-
-[container]
-format = '\([$symbol$name]($style)\)'
-symbol = ' '
+symbol = '-'
 
 [os]
 disabled = false
-format = '\[[$symbol$type]($style)\]'
+format = '[$symbol]($style) '
+style = "white bold dimmed"
 
 [os.symbols]
 AIX = " "
@@ -251,4 +156,4 @@ discharging_symbol = ' '
 
 [time]
 disabled = false
-format = '\[ [$time]($style)\]'
+format = ' [$time]($style)'
