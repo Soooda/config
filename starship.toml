@@ -31,6 +31,7 @@ $rust\
 $scala\
 )\
 $container\
+$fill\
 \\[\
 $time\
 \\]\
@@ -53,12 +54,13 @@ min_time = 5000
 disabled = false
 show_always = true
 format = '[$user]($style)'
-style_user = "green bold"
+style_user = "bright-green bold"
 style_root = "red bold"
 aliases = {} #{ "soda" = "hilbert" }
 
 [hostname]
 format = '@[$hostname$ssh_symbol]($style) '
+style = "purple"
 ssh_only = false
 ssh_symbol = ''
 
@@ -72,12 +74,12 @@ format = 'on [$symbol$branch(:$remote_branch)]($style) '
 symbol = ' '
 
 [fill]
-symbol = '-'
+symbol = ' '
 
 [os]
 disabled = false
-format = '[$symbol]($style) '
-style = "white bold dimmed"
+format = '[$symbol]($style)'
+style = "bright-white bold"
 
 [os.symbols]
 AIX = " "
