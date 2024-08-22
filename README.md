@@ -40,6 +40,12 @@ brew install --cask font-fira-code
 brew install --cask font-hack-nerd-font
 ```
 
+## Development
+
+```bash
+brew install tree
+```
+
 ## SSH Configuration
 
 ## GUI Apps
