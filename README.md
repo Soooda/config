@@ -44,6 +44,9 @@ brew install --cask font-hack-nerd-font
 
 ```bash
 brew install tree
+brew install dust
+brew install neofetch
+brew install yazi
 ```
 
 ## SSH Configuration
