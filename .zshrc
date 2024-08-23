@@ -1,3 +1,21 @@
+setopt AUTO_CD
+setopt INTERACTIVE_COMMENTS
+setopt HIST_FCNTL_LOCK
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
+
+# Autoload
+autoload -U compinit; compinit
+zmodload zsh/complist
+
+# Auto Completion
+zstyle ":completion:*:*:*:*:*" menu select
+zstyle ":completion:*" use-cache yes
+zstyle ":completion:*" special-dirs true
+zstyle ":completion:*" squeeze-slashes true
+zstyle ":completion:*" file-sort change
+zstyle ":completion:*" matcher-list "m:{[:lower:][:upper:]}={[:upper:][:lower:]}" "r:|=*" "l:|=* r:|=*"
+
 # PATH
 
 # Variables
@@ -11,6 +29,7 @@ alias lg="lazygit"
 alias vi="\vim"
 alias vim="nvim"
 alias du="dust -r -n 999999999"
+alias ls="ls --color=auto"
 
 # Initialize tools
 source <(fzf --zsh) # Fuzzy File Search
