@@ -1,8 +1,7 @@
 {
     "workbench.colorTheme": "Catppuccin Macchiato",
-    "editor.fontSize": 18,
+    "editor.fontSize": 16,
     "editor.fontFamily": "Hack Nerd Font, Menlo, Monaco, 'Courier New', monospace",
-    "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.startupEditor": "none",
 
     // Catppuccin's semantic highlighting
@@ -72,6 +71,7 @@
         {
             "before": ["<leader>", "<cr>"],
             "commands": [":nohlsearch"],
+            "silent": true
         },
         {
             "before": ["-"],
@@ -172,6 +172,7 @@
         {
             "before": ["<leader>", "0"],
             "commands": [":tabo"],
+            "silent": true
         },
         {
             "before": ["s", "h"],
@@ -184,6 +185,7 @@
         {
             "before": ["s", "t"],
             "commands": [":tabnew"],
+            "silent": true
         },
     ],
     "vim.normalModeKeyBindings": [
@@ -196,19 +198,27 @@
         {
             "before": ["<"],
             "commands": ["editor.action.outdentLines"],
+            "silent": true
         },
         {
             "before": [">"],
             "commands": ["editor.action.indentLines"],
+            "silent": true
         },
         {
             "before": ["<leader>", "<cr>"],
             "commands": [":nohlsearch"],
+            "silent": true
         },
     ],
     // To improve performance
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1,
     },
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "editor.acceptSuggestionOnEnter": "smart",
+    "settingsSync.ignoredExtensions": [],
+    "settingsSync.ignoredSettings": [],
+    "extensions.ignoreRecommendations": true
 }
