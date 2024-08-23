@@ -1,10 +1,16 @@
 # PATH
 
+# Variables
+export EDITOR="nvim"
+export VISUAL="nvim"
+export HOMEBREW_NO_ANALYTICS=1
+
 # Aliases
 alias s="neofetch"
 alias lg="lazygit"
 alias vi="\vim"
 alias vim="nvim"
+alias du="dust -r -n 999999999"
 
 # Initialize tools
 source <(fzf --zsh) # Fuzzy File Search
