@@ -10,6 +10,7 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$git_status\
 (\
 $bun\
 $c\
@@ -70,8 +71,15 @@ read_only = '!'
 truncate_to_repo = false
 
 [git_branch]
-format = 'on [$symbol$branch(:$remote_branch)]($style) '
+format = 'on [$symbol$branch(:$remote_branch)]($style)'
 symbol = ' '
+
+[git_status]
+format = '[$all_status$ahead_behind]($style) '
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
 
 [fill]
 symbol = ' '
