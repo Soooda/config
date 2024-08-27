@@ -6,10 +6,12 @@ setopt SHARE_HISTORY
 
 # Autoload
 autoload -U compinit; compinit
+autoload -U colors && colors
 zmodload zsh/complist
 
 # Auto Completion
-zstyle ":completion:*:*:*:*:*" menu select
+zstyle ":completion:*" menu select
+zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}
 zstyle ":completion:*" use-cache yes
 zstyle ":completion:*" special-dirs true
 zstyle ":completion:*" squeeze-slashes true
@@ -59,7 +61,6 @@ unset __conda_setup
 eval "$(starship init zsh)" # Starship
 eval "$(zoxide init zsh)" # Zoxide
 # colored-man-pages
-autoload -U colors && colors
 source ~/.config/zsh/plugins/colored-man-pages.zsh
 # zsh-syntax-highlighting
 if [ ! -d "$HOME/.config/zsh/plugins/zsh-syntax-highlighting" ]; then
