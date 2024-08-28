@@ -5,13 +5,20 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 
 # Autoload
-autoload -U compinit; compinit
-autoload -U colors && colors
+autoload -Uz compinit; compinit
+autoload -Uz colors && colors
 zmodload zsh/complist
 
 # Auto Completion
 zstyle ":completion:*" menu select
-zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}
+if whence dircolors >/dev/null; then
+  eval "$(dircolors -b)"
+  alias ls='ls --color'
+else
+  export CLICOLOR=1
+  export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+fi
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ":completion:*" use-cache yes
 zstyle ":completion:*" special-dirs true
 zstyle ":completion:*" squeeze-slashes true
@@ -31,7 +38,6 @@ alias lg="lazygit"
 alias vi="\vim"
 alias vim="nvim"
 alias du="dust -r -n 999999999"
-alias ls="ls --color=auto"
 
 # Initialize tools
 source <(fzf --zsh) # Fuzzy File Search
