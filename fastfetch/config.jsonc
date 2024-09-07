@@ -75,11 +75,6 @@
         },
     {
       "type": "custom",
-      "format": "  󰊤  GitHub : Vinayydv3695",
-      "keyColor": "\u001b[38;5;75m"
-    },
-    {
-      "type": "custom",
       "format": ""
     },
     "break",
