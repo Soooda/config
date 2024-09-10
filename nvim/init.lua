@@ -210,7 +210,7 @@ require("lazy").setup({
 			},
 			cursorword = {
 				enable = true,
-				min_length = 3,
+				min_length = 2,
 				hl = { underline = true },
 			}
 		},
