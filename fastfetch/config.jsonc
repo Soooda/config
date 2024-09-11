@@ -3,10 +3,10 @@
 	"logo": {
 		"source": "~/.config/fastfetch/ascii/cat.txt",
 		"padding": {
-			"top": 5,
+			"top": 2,
 			"right": 0,
 			"bottom": 0,
-			"left": 12
+			"left": 3
 		}
 	},
 	"display": {
@@ -31,78 +31,78 @@
 			"type": "custom"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}󰌢  {#37}host    {#34}│",
+			"key": "│                                                   │\u001b[51D{#34}󰌢  {#37}Host    {#34}│",
 			"type": "title",
 			"format": "{2}",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}󰅐  {#37}uptime  {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}󰅐  {#37}Uptime  {#34}│ ",
 			"type": "uptime",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}  {#37}distro  {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}  {#37}Distro  {#34}│ ",
 			"type": "os",
 			"format": "{2} {9}",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}  {#37}kernel  {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}  {#37}Kernel  {#34}│ ",
 			"type": "kernel",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}󰏗  {#37}pkgs    {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}󰏗  {#37}Pkgs    {#34}│ ",
 			"type": "packages",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}󰇄  {#37}desktop {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}󰇄  {#37}Desktop {#34}│ ",
 			"type": "de",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}  {#37}term    {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}  {#37}Term    {#34}│ ",
 			"type": "terminal",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}  {#37}shell   {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}  {#37}Shell   {#34}│ ",
 			"type": "shell",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}󰍛  {#37}cpu     {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}󰍛  {#37}CPU     {#34}│ ",
 			"type": "cpu",
 			"format": "{1}",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}  {#37}gpu     {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}  {#37}GPU     {#34}│ ",
 			"type": "gpu",
 			"format": "{2}",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}󰉉  {#37}disk    {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}󰉉  {#37}Disk    {#34}│ ",
 			"type": "disk",
 			"folders": "/",
 			"format": "{2}",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}  {#37}memory  {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}  {#37}Memory  {#34}│ ",
 			"type": "memory",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}󰝚  {#37}music  {#34}│ ",
-			"type": "music",
+			"key": "│                                                   │\u001b[51D{#34}󰝚  {#37}Music   {#34}│ ",
+			"type": "media",
 			"outputColor": "34;1"
 		},
 		{
-			"key": "│                                                   │\u001b[51D{#34}  {#37}colors  {#34}│ ",
+			"key": "│                                                   │\u001b[51D{#34}  {#37}Colors  {#34}│ ",
 			"type": "colors",
 			"symbol": "square"
 		},
