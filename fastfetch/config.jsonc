@@ -23,7 +23,7 @@
 			"type": "custom"
 		},
 		{
-			"key": "           Fastfetch                          {#33} {#32} {#31} {#34}│",
+			"key": "Fastfetch                                     {#33} {#32} {#31} {#34}│",
 			"type": "custom"
 		},
 		{
@@ -36,6 +36,17 @@
 			"format": "{2}",
 			"outputColor": "34;1"
 		},
+		// {
+		// 	"key": "│                                                   │\u001b[51D{#34}󰸉  {#37}Wallpaper   {#34}│",
+		// 	"type": "wallpaper",
+		// 	"outputColor": "34;1"
+		// },
+        // {
+		// 	"key": "│                                                   │\u001b[51D{#34}󰖐  {#37}Weather   {#34}│",
+		// 	"type": "weather",
+		// 	"format": "{1}",
+		// 	"outputColor": "34;1"
+        // },
 		{
 			"key": "│                                                   │\u001b[51D{#34}󰅐  {#37}Uptime  {#34}│ ",
 			"type": "uptime",
@@ -96,11 +107,12 @@
 			"type": "memory",
 			"outputColor": "34;1"
 		},
-		{
-			"key": "│                                                   │\u001b[51D{#34}󰝚  {#37}Music   {#34}│ ",
-			"type": "media",
-			"outputColor": "34;1"
-		},
+		// {
+		// 	"key": "│                                                   │\u001b[51D{#34}󰝚  {#37}Music   {#34}│ ",
+		// 	"type": "media",
+		// 	"format": "{2}",
+		// 	"outputColor": "34;1"
+		// },
 		{
 			"key": "│                                                   │\u001b[51D{#34}  {#37}Colors  {#34}│ ",
 			"type": "colors",
