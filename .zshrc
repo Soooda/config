@@ -80,4 +80,4 @@ fi
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Startup Commands
-neofetch
+fastfetch
