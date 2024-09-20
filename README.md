@@ -38,6 +38,7 @@ defaults delete -g ApplePressAndHoldEnabled
 ```bash
 brew install --cask font-fira-code
 brew install --cask font-hack-nerd-font
+brew install font-symbols-only-nerd-font
 ```
 
 ## Development
@@ -45,7 +46,9 @@ brew install --cask font-hack-nerd-font
 ```bash
 brew install tree
 brew install dust
-brew install neofetch
+brew install fastfetch
+brew install yazi
+brew install ripgrep
 brew install yazi
 ```
 
