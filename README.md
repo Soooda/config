@@ -50,6 +50,10 @@ brew install fastfetch
 brew install yazi
 brew install ripgrep
 brew install yazi
+brew install bat
+brew install lsd
+brew install gping
+brew install tldr
 ```
 
 ## SSH Configuration
