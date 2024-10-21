@@ -34,10 +34,11 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # Aliases
 alias s="neofetch"
+alias ls="lsd"
 alias lg="lazygit"
 alias vi="\vim"
 alias vim="nvim"
-alias du="dust -r -n 999999999"
+alias du="duf"
 
 # Initialize tools
 if command -v fzf &> /dev/null

@@ -45,7 +45,7 @@ brew install font-symbols-only-nerd-font
 
 ```bash
 brew install tree
-brew install dust
+brew install duf
 brew install fastfetch
 brew install yazi
 brew install ripgrep
