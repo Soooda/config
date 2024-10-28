@@ -33,7 +33,7 @@ export VISUAL="nvim"
 export HOMEBREW_NO_ANALYTICS=1
 
 # Aliases
-alias s="neofetch"
+alias s="fastfetch"
 alias ls="lsd"
 alias lg="lazygit"
 alias vi="\vim"
