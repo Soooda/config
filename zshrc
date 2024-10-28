@@ -38,7 +38,7 @@ alias ls="lsd"
 alias lg="lazygit"
 alias vi="\vim"
 alias vim="nvim"
-alias du="duf"
+alias du="dust -r -n 999999999"
 
 # Initialize tools
 if command -v fzf &> /dev/null
