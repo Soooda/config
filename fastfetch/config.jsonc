@@ -100,7 +100,7 @@
 			"key": "│                                                   │\u001b[51D{#34}󰉉  {#37}Disk    {#34}│ ",
 			"type": "disk",
 			"folders": "/",
-			"format": "{2}",
+			"format": "{1} / {2} ({3})",
 			"outputColor": "34;1"
 		},
 		{
