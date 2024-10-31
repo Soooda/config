@@ -40,6 +40,11 @@ alias vi="\vim"
 alias vim="nvim"
 alias du="dust -r -n 999999999"
 
+# Frok from: https://github.com/ohmyzsh/ohmyzsh/blob/71cc861806f30d8f7fd3d0040db86737cab62581/lib/directories.zsh
+alias -g ..='../'
+alias -g ...='../..'
+alias -g ....='../../..'
+
 # Initialize tools
 if command -v fzf &> /dev/null
 then
