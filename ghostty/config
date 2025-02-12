@@ -1,0 +1,18 @@
+font-family = "Hack Nerd Font Mono"
+font-size = 18
+theme = catppuccin-macchiato
+cursor-style = "block"
+cursor-style-blink = true
+window-width = 80
+window-height = 25
+background-opacity = 0.8
+background-blur-radius = 20
+quit-after-last-window-closed = true
+scrollback-limit = 10000000
+shell-integration = "detect"
+window-inherit-working-directory = true
+focus-follows-mouse = true
+window-padding-x = 6
+
+# Shaders
+custom-shader = shaders/snow-down.glsl
