@@ -16,3 +16,12 @@ window-padding-x = 6
 
 # Shaders
 custom-shader = shaders/snow-down.glsl
+
+# Custom Icons
+macos-icon = "custom-style"
+macos-icon-frame = "beige"
+macos-icon-ghost-color = "#9F5EBC"
+macos-icon-screen-color = "#F7F8FA"
+
+# Keybindings
+keybind = cmd+h=new_split:right
