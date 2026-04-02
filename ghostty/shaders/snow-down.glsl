@@ -32,7 +32,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 		q += vec2(q.y * (WIDTH * mod(fi * 7.238917, 1.0) - WIDTH * 0.5), SPEED * iTime / (1.0 + fi * DEPTH * 0.03));
 		vec3 n = vec3(floor(q), 31.189 + fi);
 		vec3 m = floor(n) * 0.00001 + fract(n);
-		vec3 mp = (31415.9 + m) / fract(p * m);
+		vec3 mp = (31415.9 + m) / (fract(p * m) + 0.00001); // Add a small epsilon to avoid DivByZero
 		vec3 r = fract(mp);
 		vec2 s = abs(mod(q, 1.0) - 0.5 + 0.9 * r.xy - 0.45);
 		s += 0.01 * abs(2.0 * fract(10.0 * q.yx) - 1.0);
