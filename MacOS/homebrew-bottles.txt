@@ -3,11 +3,21 @@ exiftool
 git-lfs
 gotop
 htop
-neofetch
+fastfetch
 neovim
 node
 lazygit
-lf
+yazi
+lsd # Replacing `ld`
+jd # For JSON diff
+jq # JSON | jq .{field}
+zoxide
+tldr
+fd # Replacing `find`
+fzf
+ripgrep
+core-utils # For Yazi integration with Neovim
+
 
 # Cask
 blender
