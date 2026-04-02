@@ -94,8 +94,8 @@ return {
 				preselect = cmp.PreselectMode.None,
 				mapping = {
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-u>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
-					["<C-e>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
+					["<S-Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
+					["<Tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
 					["<M-u>"] = cmp.mapping.scroll_docs(-4),
 					["<M-e>"] = cmp.mapping.scroll_docs(4),
 					["<CR>"] = cmp.mapping.confirm { select = true },

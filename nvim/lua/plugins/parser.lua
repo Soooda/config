@@ -67,7 +67,7 @@ return {
 		build = ":TSUpdate",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			require("nvim-treesitter.configs").setup {
+			require("nvim-treesitter.config").setup {
 				ensure_installed = M.ts_langs,
 				highlight = {
 					enable = true,

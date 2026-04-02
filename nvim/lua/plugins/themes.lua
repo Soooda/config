@@ -13,6 +13,7 @@ return {
             },
             transparent_background = true,
             term_colors = true,
+			auto_integrations = true,
             integrations = {
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             },
