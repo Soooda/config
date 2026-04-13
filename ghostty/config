@@ -1,6 +1,6 @@
 font-family = "Hack Nerd Font Mono"
 font-size = 18
-theme = catppuccin-macchiato
+theme = Catppuccin Macchiato
 cursor-style = "block"
 cursor-style-blink = true
 window-width = 80
@@ -17,11 +17,9 @@ window-padding-x = 6
 # Shaders
 custom-shader = shaders/snow-down.glsl
 
-# Custom Icons
-macos-icon = "custom-style"
-macos-icon-frame = "beige"
-macos-icon-ghost-color = "#9F5EBC"
-macos-icon-screen-color = "#F7F8FA"
+# MacOS Custom Icon
+macos-icon = custom
+macos-custom-icon = "~/.config/ghostty/ghostty-catppuccin-macchiato.icns"
 
 # Keybindings
 keybind = cmd+h=new_split:right
