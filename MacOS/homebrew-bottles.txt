@@ -9,6 +9,7 @@ node
 lazygit
 yazi
 lsd # Replacing `ld`
+bat # Replacing `cat`
 jd # For JSON diff
 jq # JSON | jq .{field}
 zoxide
