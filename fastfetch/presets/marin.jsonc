@@ -11,7 +11,7 @@
   },
   "logo": {
     "type": "kitty-direct",
-    "source": "~/.config/fastfetch/img/marin.png",
+    "source": "~/.config/fastfetch/marin.png",
     "width": 20,
     "height": 10
   },
