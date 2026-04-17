@@ -1,0 +1,96 @@
+{
+"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+"logo": {
+"type": "builtin",
+"source": "windows",
+"width": 18,
+"padding": {
+"top": 1,
+"right": 3
+}
+},
+
+"display": {
+"separator": " : "
+},
+
+"modules": [
+
+
+{
+  "type": "title",
+  "format": "{user-name}@{host-name}",
+  "color": {
+    "user": "#F5C2E7",
+    "at": "#CDD6F4",
+    "host": "#89DCEB"
+  }
+},
+
+{
+  "type": "datetime",
+  "key": "Date & Time"
+},
+
+"break",
+
+{ "type": "os", "key": "OS", "keyColor": "#89DCEB" },
+{ "type": "host", "key": "Host", "keyColor": "#F5C2E7" },
+{ "type": "kernel", "key": "Kernel", "keyColor": "#FAB387" },
+{ "type": "uptime", "key": "Uptime", "keyColor": "#F9E2AF" },
+
+"break",
+
+{ "type": "shell", "key": "Shell", "keyColor": "#A6E3A1" },
+{ "type": "terminal", "key": "Terminal", "keyColor": "#94E2D5" },
+
+"break",
+
+{ "type": "display", "key": "Display", "keyColor": "#A6E3A1" },
+{ "type": "cpu", "key": "CPU", "keyColor": "#F5C2E7" },
+{ "type": "gpu", "key": "GPU", "keyColor": "#FAB387" },
+
+{
+  "type": "memory",
+  "key": "RAM",
+  "keyColor": "#A6E3A1"
+},
+
+{
+  "type": "disk",
+  "key": "Disk",
+  "folders": "C:\\",
+  "keyColor": "#94E2D5"
+},
+
+{
+  "type": "battery",
+  "key": "Battery",
+  "keyColor": "#F9E2AF"
+},
+
+{ "type": "localip", "key": "IP", "keyColor": "#89DCEB" },
+
+"break",
+
+{
+  "type": "colors",
+  "symbol": "circle"
+},
+
+"break",
+{
+  "type": "media",
+  "key": "Song",
+  "format": "{title}"
+},
+"break",
+{
+  "type": "sound",
+  "key": "Vol",
+  "keyColor": "#CBA6F7"
+}
+
+]
+}
