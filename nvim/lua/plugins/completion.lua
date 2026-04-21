@@ -1,39 +1,3 @@
-local icons = {
-	Keyword = "󰌋 ",
-	Operator = "󰆕 ",
-
-	Text = " ",
-	Value = "󰎠 ",
-	Constant = "󰏿 ",
-
-	Method = " ",
-	Function = "󰊕 ",
-	Constructor = " ",
-
-	Class = " ",
-	Interface = " ",
-	Module = " ",
-
-	Variable = " ",
-	Property = "󰜢 ",
-	Field = "󰜢 ",
-
-	Struct = "󰙅 ",
-	Enum = " ",
-	EnumMember = " ",
-
-	Snippet = " ",
-
-	File = " ",
-	Folder = " ",
-
-	Reference = "󰈇 ",
-	Event = " ",
-	Color = " ",
-	Unit = "󰑭 ",
-	TypeParameter = " ",
-}
-
 return {
 	-- Auto-pairing brackets
 	{
@@ -44,137 +8,76 @@ return {
 			check_ts = true,
 			enable_check_bracket_line = true,
 			fast_wrap = {
-				-- map = "<M-e>",
 				chars = { "{", "(", "[", "<", '"', "'", "`" },
 			},
 		},
-		-- TODO: remove this block when https://github.com/windwp/nvim-autopairs/pull/363 is merged
-		config = function(opts)
+		config = function(_, opts)
 			local autopairs = require("nvim-autopairs")
 			local Rule = require("nvim-autopairs.rule")
 			local cond = require("nvim-autopairs.conds")
 			autopairs.setup(opts)
-			autopairs.add_rules {
+			autopairs.add_rules({
 				Rule("<", ">"):with_pair(cond.before_regex("%a+")):with_move(function(o) return o.char == ">" end),
-			}
+			})
 		end,
-		-- END TODO
 	},
-	-- Snippets
+	-- Completion + snippets
 	{
-		"L3MON4D3/LuaSnip",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-			config = function()
-				vim.schedule(function() require("luasnip.loaders.from_vscode").lazy_load() end)
-			end,
-		},
-		lazy = true,
-		opts = {
-			history = true,
-			delete_check_events = "TextChanged",
-		},
-	},
-	-- Auto Completion
-	{
-		"hrsh7th/nvim-cmp",
+		"saghen/blink.cmp",
+		version = "1.*",
 		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp", lazy = true },
-			{ "hrsh7th/cmp-buffer", lazy = true },
-			{ "hrsh7th/cmp-cmdline", lazy = true },
-			{ "hrsh7th/cmp-path", lazy = true },
-
-			-- For luasnip users
-			{ "saadparwaiz1/cmp_luasnip", lazy = true },
+			"rafamadriz/friendly-snippets",
+			{
+				"fang2hou/blink-copilot",
+				opts = {},
+			},
 		},
-		config = function()
-			local cmp = require("cmp")
-			cmp.setup {
-				preselect = cmp.PreselectMode.None,
-				mapping = {
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
-					["<Tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
-					["<M-u>"] = cmp.mapping.scroll_docs(-4),
-					["<M-e>"] = cmp.mapping.scroll_docs(4),
-					["<CR>"] = cmp.mapping.confirm { select = true },
-					["<S-CR>"] = cmp.mapping.confirm { select = true, behavior = cmp.ConfirmBehavior.Replace },
+		opts = {
+			keymap = {
+				preset = "default",
+				["<Tab>"] = { "show", "select_next", "fallback" },
+				["<S-Tab>"] = { "show", "select_prev", "fallback" },
+				["<CR>"] = { "accept", "fallback" },
+			},
+			snippets = {
+				expand = function(snippet) vim.snippet.expand(snippet) end,
+				active = function(filter) return vim.snippet.active(filter) end,
+				jump = function(direction) vim.snippet.jump(direction) end,
+			},
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer", "copilot" },
+				providers = {
+					copilot = {
+						name = "copilot",
+						module = "blink-copilot",
+						enabled = false,
+						async = true,
+						score_offset = 100,
+					},
 				},
-				snippet = {
-					expand = function(args) require("luasnip").lsp_expand(args.body) end,
-				},
+			},
+			cmdline = {
+				enabled = true,
+				keymap = { preset = "inherit" },
 				completion = {
-					completeopt = "menu,menuone,noinsert",
+					menu = { auto_show = true },
 				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "path" },
-					{ name = "buffer" },
-					{ name = "luasnip" },
-				},
-				formatting = {
-					fields = { "kind", "abbr", "menu" },
-					format = function(entry, item)
-						item.kind = icons[item.kind] or item.kind
-
-						local truncated = vim.fn.strcharpart(item.abbr, 0, 30)
-						if truncated ~= item.abbr then
-							item.abbr = truncated .. "…"
-						end
-
-						return item
-					end,
-				},
-			}
-
-			local mapping = {
-				["<Tab>"] = cmp.mapping(function()
-					if cmp.visible() then
-						cmp.select_next_item()
-					else
-						cmp.complete()
+				sources = function()
+					local cmdtype = vim.fn.getcmdtype()
+					if cmdtype == "/" or cmdtype == "?" then
+						return { "buffer" }
 					end
-				end, { "c" }),
-				["<S-Tab>"] = cmp.mapping(function()
-					if cmp.visible() then
-						cmp.select_prev_item()
-					else
-						cmp.complete()
+					if cmdtype == ":" or cmdtype == "@" then
+						return { "cmdline", "buffer" }
 					end
-				end, { "c" }),
-			}
-
-			-- Use buffer source for `/` and `?`
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = mapping,
-				completion = {
-					completeopt = "menu,menuone,noselect",
-				},
-				sources = {
-					{ name = "buffer", keyword_length = 2 },
-				},
-			})
-
-			-- Use cmdline & path source for ':'
-			cmp.setup.cmdline(":", {
-				mapping = mapping,
-				completion = {
-					completeopt = "menu,menuone,noselect",
-				},
-				sources = cmp.config.sources({
-					{ name = "path", keyword_length = 2 },
-				}, {
-					{ name = "cmdline", keyword_length = 2 },
-				}),
-			})
-		end,
+					return {}
+				end,
+			},
+		},
+		opts_extend = { "sources.default" },
 	},
-	-- Copilot
+	-- Copilot (kept disabled, ready for blink-copilot bridge)
 	{
 		"zbirenbaum/copilot.lua",
 		enabled = false,
@@ -184,14 +87,8 @@ return {
 		opts = {
 			panel = { enabled = false },
 			suggestion = {
-				enabled = true,
-				auto_trigger = true,
-				keymap = {
-					accept = false,
-					prev = "<M-[>",
-					next = "<M-]>",
-					dismiss = false,
-				},
+				enabled = false,
+				auto_trigger = false,
 			},
 			filetypes = {
 				yaml = true,
@@ -203,17 +100,6 @@ return {
 				["."] = true,
 			},
 		},
-		config = function(_, opts)
-			require("copilot").setup(opts)
-
-			vim.keymap.set("i", "<Tab>", function()
-				if require("copilot.suggestion").is_visible() then
-					require("copilot.suggestion").accept()
-				else
-					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-				end
-			end, { silent = true, desc = "Copilot accept suggestion / tab fallback" })
-		end,
 	},
 	-- Switch between single-line and multiline forms of code
 	{
@@ -240,7 +126,6 @@ return {
 	-- Surround Plugin
 	{
 		"kylechui/nvim-surround",
-		-- TODO: Add Which-key descriptions
 		event = { "BufReadPost", "BufNewFile" },
 		config = true,
 	},
@@ -265,7 +150,7 @@ return {
 				textobject = "<leader>c",
 			},
 			hooks = {
-				pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
+				pre = function() require("ts_context_commentstring.internal").update_commentstring({}) end,
 			},
 		},
 	},

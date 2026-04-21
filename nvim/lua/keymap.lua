@@ -5,7 +5,7 @@ vim.keymap.set("", "<Space>", "<Nop>", { desc = "Leader key (no-op)" })
 
 -- Special Keys
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Enter command mode" })
-vim.keymap.set("", "<Tab>", "<Nop>", { desc = "Tab key reserved for completion" }) -- Will be handled in `plugins/completion.lua`
+vim.keymap.set({ "n", "v" }, "<Tab>", "<Nop>", { desc = "Tab key reserved for completion" }) -- Insert/cmdline Tab are handled by completion plugin
 vim.keymap.set("", "s", "<Nop>", { desc = "Disable default s motion" })
 -- Disable built-in comment action and resolve the which-key checkhealth issue
 vim.keymap.del('n', 'gc')
