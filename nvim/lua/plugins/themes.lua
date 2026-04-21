@@ -1,28 +1,28 @@
 return {
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        enabled = true,
-        lazy = false,
-        priority = 1000,
-        opts = {
-            flavour = "macchiato",
-            background = {
-                light = "latte",
-                dark = "macchiato",
-            },
-            transparent_background = true,
-            term_colors = true,
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		enabled = true,
+		lazy = false,
+		priority = 1000,
+		opts = {
+			flavour = "macchiato",
+			background = {
+				light = "latte",
+				dark = "macchiato",
+			},
+			transparent_background = true,
+			term_colors = true,
 			auto_integrations = true,
-            integrations = {
-                -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-            },
-        },
-        config = function(_, opts)
-            require("catppuccin").setup(opts)
-            vim.cmd.colorscheme("catppuccin")
-        end
-    },
+			integrations = {
+				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+			},
+		},
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
+			vim.cmd.colorscheme("catppuccin")
+		end
+	},
 	{
 		"Mofiqul/dracula.nvim",
 		enabled = false,

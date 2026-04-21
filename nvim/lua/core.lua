@@ -3,6 +3,7 @@ vim.g.have_nerd_font = true
 
 -- Editing
 vim.opt.number = true
+vim.opt.relativenumber = false
 vim.opt.cursorline = true
 vim.opt.visualbell = true
 vim.opt.linebreak = true
@@ -29,6 +30,7 @@ vim.opt.shortmess = "atToOCFI"
 -- Indent
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true -- Lines wrapped will still be indented
 
@@ -51,16 +53,13 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
-vim.opt.list = false
+vim.opt.list = true
 -- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- vim.opt.listchars = { tab = '┆ ', trail = '·', nbsp = '␣' }
 vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
 -- Set Neovim to use the system clipboard for all yank, delete, change, and put operations
---  Schedule the setting after `UiEnter` because it can increase startup-time.
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+vim.opt.clipboard:append("unnamedplus")
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -91,7 +90,7 @@ vim.diagnostic.config {
 vim.opt.history = 1000
 vim.opt.wildignorecase = true
 vim.opt.timeoutlen = 300
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = { "menuone", "noselect" }
 
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
@@ -112,21 +111,21 @@ vim.api.nvim_create_autocmd("BufRead", {
 					not (ft:match("commit") and ft:match("rebase"))
 					and last_known_line > 1
 					and last_known_line <= vim.api.nvim_buf_line_count(opts.buf)
-				then
-					vim.api.nvim_feedkeys('g`"', "nx", false)
-				end
-			end,
-		})
-	end,
-})
+					then
+						vim.api.nvim_feedkeys('g`"', "nx", false)
+					end
+				end,
+			})
+		end,
+	})
 
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+	-- Highlight when yanking (copying) text
+	--  Try it with `yap` in normal mode
+	--  See `:help vim.highlight.on_yank()`
+	vim.api.nvim_create_autocmd('TextYankPost', {
+		desc = 'Highlight when yanking (copying) text',
+		group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+		callback = function()
+			vim.highlight.on_yank()
+		end,
+	})

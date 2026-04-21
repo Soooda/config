@@ -14,8 +14,8 @@ return {
 			deceleration_table = { { 150, 9999 } }
 		},
 		config = function()
-			vim.keymap.set('n', 'j', '<Plug>(accelerated_jk_gj)', {})
-			vim.keymap.set('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+			vim.keymap.set('n', 'j', '<Plug>(accelerated_jk_gj)', { desc = "Accelerated down" })
+			vim.keymap.set('n', 'k', '<Plug>(accelerated_jk_gk)', { desc = "Accelerated up" })
 		end,
 	},
 	-- Colorizer

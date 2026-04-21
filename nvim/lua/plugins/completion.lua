@@ -212,7 +212,7 @@ return {
 				else
 					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
 				end
-			end, { silent = true })
+			end, { silent = true, desc = "Copilot accept suggestion / tab fallback" })
 		end,
 	},
 	-- Switch between single-line and multiline forms of code
@@ -231,11 +231,9 @@ return {
 	{
 		"sQVe/sort.nvim",
 		keys = {
-			{ "go", ":Sort<CR>", mode = "n", silent = true, desc = "Sort Line"
-			},
+			{ "go", ":Sort<CR>", mode = "n", silent = true, desc = "Sort Line" },
 			{ "go", "<Esc>:Sort<CR>", mode = "v", silent = true, desc = "Sort" },
-			{ "gO", ":Sort!<CR>", mode = "n", silent = true, desc = "Reverse Sort Line"
-			},
+			{ "gO", ":Sort!<CR>", mode = "n", silent = true, desc = "Reverse Sort Line" },
 			{ "gO", "<Esc>:Sort!<CR>", mode = "v", silent = true, desc = "Reverse Sort" },
 		},
 	},
@@ -245,56 +243,6 @@ return {
 		-- TODO: Add Which-key descriptions
 		event = { "BufReadPost", "BufNewFile" },
 		config = true,
-	},
-	-- Commenting
-	{
-		"echasnovski/mini.comment",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"JoosepAlviste/nvim-ts-context-commentstring",
-		},
-		keys = {
-			{ "<leader>c", nil, mode = { "n", "o", "x" }, desc = "Toggle Comment" },
-		},
-		opts = {
-			options = {
-				ignore_blank_line = true,
-			},
-			mappings = {
-				comment = "<leader>c",
-				comment_line = "<leader>c",
-				comment_visual = "<leader>c",
-				textobject = "<leader>c",
-			},
-			hooks = {
-				pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
-			},
-		},
-	},
-	-- Commenting
-	{
-		"echasnovski/mini.comment",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"JoosepAlviste/nvim-ts-context-commentstring",
-		},
-		keys = {
-			{ "<leader>c", nil, mode = { "n", "o", "x" }, desc = "Toggle Comment" },
-		},
-		opts = {
-			options = {
-				ignore_blank_line = true,
-			},
-			mappings = {
-				comment = "<leader>c",
-				comment_line = "<leader>c",
-				comment_visual = "<leader>c",
-				textobject = "<leader>c",
-			},
-			hooks = {
-				pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
-			},
-		},
 	},
 	-- Commenting
 	{

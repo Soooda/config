@@ -14,6 +14,16 @@ return {
 			},
 		},
 	},
+	-- Winbar breadcrumbs
+	{
+		"Bekaboo/dropbar.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
+		opts = {},
+	},
 	-- Status line
 	{
 		"nvim-lualine/lualine.nvim",
@@ -78,7 +88,7 @@ return {
 			-- Open yazi instead of netrw for directories
 			open_for_directories = false,
 			keymaps = {
-			  show_help = '`',
+				show_help = '`',
 			},
 		},
 	},
@@ -97,40 +107,40 @@ return {
 				untracked    = { text = '┆' },
 			},
 			-- on_attach = function(bufnr)
-			-- 	local gs = package.loaded.gitsigns
-			-- 	local opts = { buffer = bufnr }
-			-- 	vim.keymap.set({ "n", "v" }, "<leader>gs", gs.stage_hunk, opts)
-			-- 	vim.keymap.set("n", "<leader>gS", gs.stage_buffer, opts)
-			-- 	vim.keymap.set("n", "<leader>gl", gs.undo_stage_hunk, opts)
-			--
-			-- 	vim.keymap.set({ "n", "v" }, "<leader>gr", gs.reset_hunk, opts)
-			-- 	vim.keymap.set("n", "<leader>gR", gs.reset_buffer, opts)
-			--
-			-- 	vim.keymap.set("n", "<leader>gp", gs.preview_hunk, opts)
-			-- 	vim.keymap.set("n", "<leader>gb", function() gs.blame_line { full = true } end, opts)
-			--
-			-- 	vim.keymap.set("n", "<leader>gd", gs.diffthis, opts)
-			-- 	vim.keymap.set("n", "<leader>gD", function() gs.diffthis("~") end, opts)
-			--
-			-- 	opts = { expr = true, buffer = bufnr }
-			-- 	vim.keymap.set("n", "[[", function()
-			-- 		if vim.wo.diff then
-			-- 			return "[["
-			-- 		end
-			-- 		vim.schedule(function() gs.prev_hunk() end)
-			-- 		return "<Ignore>"
-			-- 	end, opts)
-			--
-			-- 	vim.keymap.set("n", "]]", function()
-			-- 		if vim.wo.diff then
-			-- 			return "]]"
-			-- 		end
-			-- 		vim.schedule(function() gs.next_hunk() end)
-			-- 		return "<Ignore>"
-			-- 	end, opts)
-			-- end,
-		},
-	},
+				-- 	local gs = package.loaded.gitsigns
+				-- 	local opts = { buffer = bufnr }
+				-- 	vim.keymap.set({ "n", "v" }, "<leader>gs", gs.stage_hunk, opts)
+				-- 	vim.keymap.set("n", "<leader>gS", gs.stage_buffer, opts)
+				-- 	vim.keymap.set("n", "<leader>gl", gs.undo_stage_hunk, opts)
+				--
+				-- 	vim.keymap.set({ "n", "v" }, "<leader>gr", gs.reset_hunk, opts)
+				-- 	vim.keymap.set("n", "<leader>gR", gs.reset_buffer, opts)
+				--
+				-- 	vim.keymap.set("n", "<leader>gp", gs.preview_hunk, opts)
+				-- 	vim.keymap.set("n", "<leader>gb", function() gs.blame_line { full = true } end, opts)
+				--
+				-- 	vim.keymap.set("n", "<leader>gd", gs.diffthis, opts)
+				-- 	vim.keymap.set("n", "<leader>gD", function() gs.diffthis("~") end, opts)
+				--
+				-- 	opts = { expr = true, buffer = bufnr }
+				-- 	vim.keymap.set("n", "[[", function()
+					-- 		if vim.wo.diff then
+					-- 			return "[["
+					-- 		end
+					-- 		vim.schedule(function() gs.prev_hunk() end)
+					-- 		return "<Ignore>"
+					-- 	end, opts)
+					--
+					-- 	vim.keymap.set("n", "]]", function()
+						-- 		if vim.wo.diff then
+						-- 			return "]]"
+						-- 		end
+						-- 		vim.schedule(function() gs.next_hunk() end)
+						-- 		return "<Ignore>"
+						-- 	end, opts)
+						-- end,
+					},
+				},
 	-- Display indentation guides
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -181,7 +191,10 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufNewFile" },
-		keys = { "_", "+" },
+		keys = {
+			{ "+", desc = "Next reference" },
+			{ "_", desc = "Previous reference" },
+		},
 		opts = {
 			providers = { "lsp", "treesitter", "regex" },
 			delay = 100,
@@ -207,8 +220,8 @@ return {
 			illuminate.configure(opts)
 
 			local function map(buffer)
-				vim.keymap.set("n", "+", function() illuminate.goto_next_reference(false) end, { buffer = buffer })
-				vim.keymap.set("n", "_", function() illuminate.goto_prev_reference(false) end, { buffer = buffer })
+				vim.keymap.set("n", "+", function() illuminate.goto_next_reference(false) end, { buffer = buffer, desc = "Next reference" })
+				vim.keymap.set("n", "_", function() illuminate.goto_prev_reference(false) end, { buffer = buffer, desc = "Previous reference" })
 			end
 
 			map(nil)
@@ -453,11 +466,11 @@ return {
 			}
 
 			return {
-				{ ",a", function() require("telescope.builtin").buffers() end },
-				{ "<leader>;", function() require("telescope.builtin").command_history() end },
+				{ ",a", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
+				{ "<leader>;", function() require("telescope.builtin").command_history() end, desc = "Command history" },
 
 				-- Search
-				{ "<leader>e", function() require("telescope.builtin").find_files() end },
+				{ "<leader>e", function() require("telescope.builtin").find_files() end, desc = "Find files" },
 				{
 					"<leader>E",
 					function()
@@ -465,28 +478,33 @@ return {
 							find_command = { "rg", "--color=never", "--smart-case", "--files", unpack(extr_args) },
 						}
 					end,
+					desc = "Find files (all, including hidden)",
 				},
-				{ "<leader>/", function() require("telescope.builtin").live_grep() end },
-				{ "<leader>?", function() require("telescope.builtin").live_grep { additional_args = extr_args } end },
+				{ "<leader>/", function() require("telescope.builtin").live_grep() end, desc = "Live grep" },
+				{ "<leader>?", function() require("telescope.builtin").live_grep { additional_args = extr_args } end, desc = "Live grep (all files)" },
 
 				-- LSP
 				{
 					"<leader>l",
 					function() require("telescope.builtin").lsp_references { initial_mode = "normal", reuse_win = true } end,
+					desc = "LSP references",
 				},
 				{
 					"<leader>b",
 					function() require("telescope.builtin").lsp_definitions { initial_mode = "normal", reuse_win = true } end,
+					desc = "LSP definitions",
 				},
 				{
 					"<leader>m",
 					function() require("telescope.builtin").lsp_type_definitions { initial_mode = "normal", reuse_win = true } end,
+					desc = "LSP type definitions",
 				},
 				{
 					"<leader>i",
 					function() require("telescope.builtin").lsp_implementations { initial_mode = "normal", reuse_win = true } end,
+					desc = "LSP implementations",
 				},
-				{ "<leader>u", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end },
+				{ "<leader>u", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "LSP workspace symbols" },
 			}
 		end,
 		config = function()
@@ -536,18 +554,18 @@ return {
 					},
 					buffer_previewer_maker = function(filepath, bufnr, opts)
 						require("plenary.job")
-							:new({
-								command = "file",
-								args = { "-b", "--mime", filepath },
-								on_exit = function(j)
-									if j:result()[1]:find("charset=binary", 1, true) then
-										vim.schedule(function() vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" }) end)
-									else
-										require("telescope.previewers").buffer_previewer_maker(filepath, bufnr, opts)
-									end
-								end,
-							})
-							:sync()
+						:new({
+							command = "file",
+							args = { "-b", "--mime", filepath },
+							on_exit = function(j)
+								if j:result()[1]:find("charset=binary", 1, true) then
+									vim.schedule(function() vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" }) end)
+								else
+									require("telescope.previewers").buffer_previewer_maker(filepath, bufnr, opts)
+								end
+							end,
+						})
+						:sync()
 					end,
 				},
 				pickers = {
@@ -589,6 +607,7 @@ return {
 						require("telescope.themes").get_dropdown { cwd_only = true, previewer = false }
 					)
 				end,
+				desc = "Smart open",
 			},
 		},
 		config = function() require("telescope").load_extension("smart_open") end,
@@ -600,8 +619,8 @@ return {
 			{ "nvim-lua/plenary.nvim", lazy = true },
 		},
 		keys = {
-			{ "<leader>f", ":lua require('spectre').open()<CR>", mode = "n", silent = true },
-			{ "<leader>f", ":lua require('spectre').open_visual()<CR>", mode = "v", silent = true },
+			{ "<leader>f", ":lua require('spectre').open()<CR>", mode = "n", silent = true, desc = "Find and replace (Spectre)" },
+			{ "<leader>f", ":lua require('spectre').open_visual()<CR>", mode = "v", silent = true, desc = "Find and replace selection (Spectre)" },
 		},
 		opts = {
 			highlight = {
@@ -659,9 +678,9 @@ return {
 		},
 		cmd = { "Trouble" },
 		keys = {
-			{ ",e", ":Trouble diagnostics toggle<CR>", silent = true },
-			{ ",E", ":Trouble diagnostics toggle filter.buf=0<CR>", silent = true },
-			{ ",q", ":Trouble qflist toggle<CR>", silent = true },
+			{ ",e", ":Trouble diagnostics toggle<CR>", silent = true, desc = "Diagnostics (workspace)" },
+			{ ",E", ":Trouble diagnostics toggle filter.buf=0<CR>", silent = true, desc = "Diagnostics (buffer)" },
+			{ ",q", ":Trouble qflist toggle<CR>", silent = true, desc = "Quickfix list" },
 			{
 				"[q",
 				function()
@@ -671,6 +690,7 @@ return {
 						vim.cmd.cprev()
 					end
 				end,
+				desc = "Previous quickfix/diagnostic",
 			},
 			{
 				"]q",
@@ -681,6 +701,7 @@ return {
 						vim.cmd.cnext()
 					end
 				end,
+				desc = "Next quickfix/diagnostic",
 			},
 		},
 		opts = {
@@ -746,7 +767,7 @@ return {
 						end
 					end
 
-					vim.keymap.set("n", "x", delete, { buffer = event.buf })
+					vim.keymap.set("n", "x", delete, { buffer = event.buf, desc = "Delete trouble entry/group" })
 				end,
 			})
 

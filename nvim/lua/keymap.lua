@@ -1,12 +1,12 @@
 -- Leader Key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.keymap.set("", "<Space>", "<Nop>")
+vim.keymap.set("", "<Space>", "<Nop>", { desc = "Leader key (no-op)" })
 
 -- Special Keys
-vim.keymap.set({ "n", "v" }, ";", ":")
-vim.keymap.set("", "<Tab>", "<Nop>") -- Will be handled in `plugins/completion.lua`
-vim.keymap.set("", "s", "<Nop>")
+vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Enter command mode" })
+vim.keymap.set("", "<Tab>", "<Nop>", { desc = "Tab key reserved for completion" }) -- Will be handled in `plugins/completion.lua`
+vim.keymap.set("", "s", "<Nop>", { desc = "Disable default s motion" })
 -- Disable built-in comment action and resolve the which-key checkhealth issue
 vim.keymap.del('n', 'gc')
 vim.keymap.del('n', 'gcc')
