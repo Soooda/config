@@ -92,6 +92,12 @@ vim.opt.wildignorecase = true
 vim.opt.timeoutlen = 300
 vim.opt.completeopt = { "menuone", "noselect" }
 
+-- Custom EditorConfig defaults:
+-- Set to false to disable custom fallback defaults.
+vim.g.auto_editorconfig_defaults = true
+-- Set to true to trim trailing whitespace on save.
+vim.g.auto_trim_trailing_whitespace_on_save = false
+
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0

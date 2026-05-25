@@ -485,7 +485,7 @@ return {
 
 				-- LSP
 				{
-					"<leader>l",
+					"<leader>r",
 					function() require("telescope.builtin").lsp_references { initial_mode = "normal", reuse_win = true } end,
 					desc = "LSP references",
 				},
