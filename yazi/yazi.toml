@@ -20,6 +20,8 @@ archive = [
 
 [open]
 rules = [
+	{ mime = "inode/directory", use = [ "open", "edit", "reveal" ] },
+
 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
@@ -36,4 +38,6 @@ rules = [
 	{ mime = "application/x-bzip2",         use = [ "extract", "reveal", "archive" ] },
 	{ mime = "application/x-7z-compressed", use = [ "extract", "reveal", "archive" ] },
 	{ mime = "application/x-rar",           use = [ "extract", "reveal", "archive" ] },
+
+	{ mime = "*", use = [ "open", "reveal" ] },
 ]
