@@ -15,7 +15,8 @@ focus-follows-mouse = true
 window-padding-x = 6
 
 # Shaders
-custom-shader = shaders/snow-down.glsl
+custom-shader = shaders/snow.glsl
+custom-shader-animation = always
 
 # MacOS Custom Icon
 macos-icon = custom
