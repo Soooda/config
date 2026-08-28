@@ -44,6 +44,7 @@ vim.cmd("nohlsearch") -- Turn off hlsearch on launch
 -- Folding
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- Rendering
 vim.opt.termguicolors = true
@@ -90,7 +91,7 @@ vim.diagnostic.config {
 vim.opt.history = 1000
 vim.opt.wildignorecase = true
 vim.opt.timeoutlen = 300
-vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Custom EditorConfig defaults:
 -- Set to false to disable custom fallback defaults.

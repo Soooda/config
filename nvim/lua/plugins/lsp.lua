@@ -55,9 +55,9 @@ return {
 					map("gD", vim.lsp.buf.declaration, "LSP go to declaration")
 					map("gi", vim.lsp.buf.implementation, "LSP go to implementation")
 					map("gr", vim.lsp.buf.references, "LSP references")
-					map("<leader>rn", vim.lsp.buf.rename, "LSP rename symbol")
-					map("<leader>ca", vim.lsp.buf.code_action, "LSP code action")
-					map("<leader>lf", function() vim.lsp.buf.format({ async = true }) end, "LSP format buffer")
+					map("<leader>R", vim.lsp.buf.rename, "LSP rename symbol")
+					map("<leader>C", vim.lsp.buf.code_action, "LSP code action")
+					map("<leader>F", function() vim.lsp.buf.format({ async = true }) end, "LSP format buffer")
 				end,
 			})
 		end,

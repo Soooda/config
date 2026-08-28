@@ -36,8 +36,11 @@ return {
 		opts = {
 			keymap = {
 				preset = "default",
-				["<Tab>"] = { "show", "select_next", "fallback" },
-				["<S-Tab>"] = { "show", "select_prev", "fallback" },
+				-- No "show" on <Tab>: the menu auto-shows while typing, so <Tab> only
+				-- navigates an open menu; on a blank line it falls back to indentation.
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<C-Space>"] = { "show" },
 				["<CR>"] = { "accept", "fallback" },
 			},
 			snippets = {
@@ -59,7 +62,17 @@ return {
 			},
 			cmdline = {
 				enabled = true,
-				keymap = { preset = "inherit" },
+				-- Explicit cmdline keymap (official defaults): the cmdline menu does not
+				-- auto-show, so <Tab> keeps "show" here while insert mode falls back.
+				keymap = {
+					["<Tab>"] = { "show_and_insert_or_accept_single", "select_next" },
+					["<S-Tab>"] = { "show_and_insert_or_accept_single", "select_prev" },
+					["<CR>"] = { "accept", "fallback" },
+					["<C-n>"] = { "select_next", "fallback" },
+					["<C-p>"] = { "select_prev", "fallback" },
+					["<C-y>"] = { "select_and_accept", "fallback" },
+					["<C-e>"] = { "cancel", "fallback" },
+				},
 				completion = {
 					menu = { auto_show = true },
 				},

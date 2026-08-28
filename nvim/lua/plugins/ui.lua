@@ -5,6 +5,11 @@ return {
 		event = "VeryLazy",
 		preset = "helix",
 		opts = {
+			spec = {
+				-- Insert-mode manual trigger for blink.cmp; no rhs (which-key only
+				-- documents it, blink handles the actual binding). Browse with :WhichKey i
+				{ "<C-Space>", desc = "Trigger completion manually", mode = "i" },
+			},
 			icons = {
 				-- set icon mappings to true if you have a Nerd Font
 				mappings = vim.g.have_nerd_font,
@@ -20,7 +25,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
-			"nvim-telescope/telescope-fzf-native.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		opts = {},
 	},
@@ -88,7 +93,8 @@ return {
 			-- Open yazi instead of netrw for directories
 			open_for_directories = false,
 			keymaps = {
-				show_help = '`',
+				-- 'g?' instead of '`': global `` ` `` is mapped to switch case in keymap.lua
+				show_help = 'g?',
 			},
 		},
 	},
@@ -441,7 +447,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim", lazy = true },
-			{ "nvim-telescope/telescope-fzy-native.nvim", lazy = true },
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
 		},
 		keys = function()
 			local extr_args = {
@@ -577,18 +583,20 @@ return {
 					lsp_type_definitions = { theme = "ivy" },
 					lsp_implementations = { theme = "ivy" },
 					lsp_dynamic_workspace_symbols = {
-						sorter = telescope.extensions.fzy_native.native_fzy_sorter(),
+						sorter = telescope.extensions.fzf.native_fzf_sorter(),
 					},
 				},
 				extensions = {
-					fzy_native = {
+					fzf = {
+						fuzzy = true,
 						override_generic_sorter = true,
 						override_file_sorter = true,
+						case_mode = "smart_case",
 					},
 				},
 			}
 
-			telescope.load_extension("fzy_native")
+			telescope.load_extension("fzf")
 			telescope.load_extension("noice")
 		end,
 	},
@@ -597,7 +605,7 @@ return {
 		"danielfalk/smart-open.nvim",
 		dependencies = {
 			{ "kkharji/sqlite.lua", lazy = true },
-			{ "nvim-telescope/telescope-fzy-native.nvim", lazy = true },
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
 		},
 		keys = {
 			{

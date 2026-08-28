@@ -65,13 +65,15 @@ vim.keymap.set('n', '<LEADER>9', '9gt', { silent = true, desc = "Go to Tab 9" })
 -- Press leader + 0 to close all the other tabs
 vim.keymap.set('n', '<LEADER>0', ':tabo<CR>', { silent = true, desc = "Close any other tabs" })
 
--- Press leader + leader + h/j to change the sub-screen layout to horizontal/vertical
-vim.keymap.set('n', '<LEADER><LEADER>h', '<C-w>H', { silent = true, desc = "Sub-screen layout -> horizontal" })
-vim.keymap.set('n', '<LEADER><LEADER>j', '<C-w>J', { silent = true, desc = "Sub-screen layout -> vertical" })
+-- Press leader + leader + H/J to change the sub-screen layout to horizontal/vertical
+-- (uppercase: <leader><leader> alone is smart-open, lowercase H/J would delay it by timeoutlen)
+vim.keymap.set('n', '<LEADER><LEADER>H', '<C-w>H', { silent = true, desc = "Sub-screen layout -> horizontal" })
+vim.keymap.set('n', '<LEADER><LEADER>J', '<C-w>J', { silent = true, desc = "Sub-screen layout -> vertical" })
 
 -- Press s + h/v to split a sub-screen horizontally/vertically
-vim.keymap.set('n', 'sh', ':set splitright<cr>:vsplit<CR>', { silent = true, desc = "[S]pawn a screen [H]orizontally" })
-vim.keymap.set('n', 'sv', ':set splitbelow<cr>:split<CR>', { silent = true, desc = "[S]pawn a screen [V]ertically" })
+-- (commands align with desc: sh = horizontal split, sv = vertical split)
+vim.keymap.set('n', 'sh', ':set splitbelow<cr>:split<CR>', { silent = true, desc = "[S]pawn a screen [H]orizontally" })
+vim.keymap.set('n', 'sv', ':set splitright<cr>:vsplit<CR>', { silent = true, desc = "[S]pawn a screen [V]ertically" })
 
 -- Press s + t to spawn a new tab
 vim.keymap.set('n', 'st', ':tabnew<CR>', { silent = true, desc = "[S]pawn a new [T]ab" })
