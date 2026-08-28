@@ -36,3 +36,5 @@ require("starship"):setup({
     -- to have no space between the widgets.
     count_separator = " ",
 })
+
+require("full-border"):setup()

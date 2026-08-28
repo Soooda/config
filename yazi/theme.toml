@@ -1,2 +1,75 @@
 [flavor]
-dark = "catppuccin-mocha"
+dark = "catppuccin-macchiato"
+
+[mode]
+normal_alt = { fg = "#cad3f5", bg = "#363a4f" }
+select_alt = { fg = "#cad3f5", bg = "#363a4f" }
+unset_alt  = { fg = "#cad3f5", bg = "#363a4f" }
+
+[icon]
+
+prepend_files = [
+	{ name = ".clang-format", text = "", fg = "#8aadf4" },
+	{ name = ".clang-tidy", text = "", fg = "#8aadf4" },
+	{ name = ".ds_store", text = "", fg = "#eed49f" },
+	{ name = ".justfile", text = "", fg = "#8aadf4" },
+	{ name = ".nanorc", text = "", fg = "#c6a0f6" },
+	{ name = ".pylintrc", text = "", fg = "#8aadf4" },
+	{ name = "brewfile", text = "", fg = "#ed8796" },
+	{ name = "bspwmrc", text = "", fg = "#8bd5ca" },
+	{ name = "config", text = "", fg = "#8aadf4" },
+	{ name = "Gemfile", text = "", fg = "#ed8796" },
+	{ name = "gnumakefile", text = "", fg = "#8aadf4" },
+	{ name = "groovy", text = "", fg = "#8aadf4" },
+	{ name = "justfile", text = "", fg = "#8aadf4" },
+	{ name = "makefile", text = "", fg = "#8aadf4" },
+	{ name = "mpv.conf", text = "", fg = "#c6a0f6" },
+	{ name = "package-lock.json", text = "", fg = "#ed8796" },
+	{ name = "pom.xml", text = "", fg = "#ed8796" },
+	{ name = "rakefile", text = "", fg = "#ed8796" },
+	{ name = "robots.txt", text = "󰚩", fg = "#8aadf4" },
+	{ name = "sxhkdrc", text = "", fg = "#8bd5ca" },
+]
+
+prepend_exts = [
+	{ name = "awk", text = "", fg = "#a6da95" },
+	{ name = "bak", text = "󰁯", fg = "#8aadf4" },
+	{ name = "cfg", text = "", fg = "#8aadf4" },
+	{ name = "conf", text = "", fg = "#8aadf4" },
+	{ name = "config.ru", text = "", fg = "#ed8796" },
+	{ name = "cs", text = "󰌛", fg = "#a6da95" },
+	{ name = "csh", text = "", fg = "#a6da95" },
+	{ name = "db", text = "", fg = "#cad3f5" },
+	{ name = "diff", text = "", fg = "#eed49f" },
+	{ name = "dump", text = "", fg = "#cad3f5" },
+	{ name = "erb", text = "", fg = "#ed8796" },
+	{ name = "fish", text = "", fg = "#a6da95" },
+	{ name = "gd", text = "", fg = "#8aadf4" },
+	{ name = "gemspec", text = "", fg = "#ed8796" },
+	{ name = "gnumakefile", text = "", fg = "#8aadf4" },
+	{ name = "godot", text = "", fg = "#8aadf4" },
+	{ name = "gpr", text = "", fg = "#8aadf4" },
+	{ name = "ini", text = "", fg = "#8aadf4" },
+	{ name = "ksh", text = "", fg = "#a6da95" },
+	{ name = "lck", text = "", fg = "#cad3f5" },
+	{ name = "lock", text = "", fg = "#cad3f5" },
+	{ name = "makefile", text = "", fg = "#8aadf4" },
+	{ name = "mk", text = "", fg = "#8aadf4" },
+	{ name = "patch", text = "", fg = "#eed49f" },
+	{ name = "pck", text = "", fg = "#8aadf4" },
+	{ name = "rake", text = "", fg = "#ed8796" },
+	{ name = "rb", text = "", fg = "#ed8796" },
+	{ name = "sh", text = "", fg = "#a6da95" },
+	{ name = "sql", text = "", fg = "#cad3f5" },
+	{ name = "sqlite", text = "", fg = "#cad3f5" },
+	{ name = "sqlite3", text = "", fg = "#cad3f5" },
+	{ name = "toml", text = "", fg = "#ed8796" },
+	{ name = "tres", text = "", fg = "#8aadf4" },
+	{ name = "tscn", text = "", fg = "#8aadf4" },
+	{ name = "xcf", text = "", fg = "#eed49f" },
+	{ name = "yaml", text = "", fg = "#8aadf4" },
+	{ name = "yml", text = "", fg = "#8aadf4" },
+
+	{ name = "md", text = "", fg = "#eed49f" },
+	{ name = "markdown", text = "", fg = "#eed49f" },
+	{ name = "mdx", text = "", fg = "#eed49f" },]
