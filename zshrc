@@ -5,19 +5,15 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 
 # Autoload
-autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit -u
 autoload -Uz colors && colors
 zmodload zsh/complist
 
 # Auto Completion
 zstyle ":completion:*" menu select
-if whence dircolors >/dev/null; then
-  eval "$(dircolors -b)"
-  alias ls='ls --color'
-else
-  export CLICOLOR=1
-  export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-fi
+# BSD ls colors (no dircolors on macOS)
+export CLICOLOR=1
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ":completion:*" use-cache yes
 zstyle ":completion:*" special-dirs true
@@ -38,7 +34,7 @@ alias ls="lsd"
 alias lg="lazygit"
 alias vi="\vim"
 alias vim="nvim"
-alias du="dust -r -n 999999999"
+alias du="dust -r -n 1000"
 
 # Frok from: https://github.com/ohmyzsh/ohmyzsh/blob/71cc861806f30d8f7fd3d0040db86737cab62581/lib/directories.zsh
 alias -g ..='../'
@@ -46,12 +42,7 @@ alias -g ...='../..'
 alias -g ....='../../..'
 
 # Initialize tools
-if command -v fzf &> /dev/null
-then
-    source <(fzf --zsh) # Fuzzy File Search
-else
-    echo "fzf command not found!"
-fi
+source <(fzf --zsh) # Fuzzy File Search
 # Yazi
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -61,41 +52,18 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-if command -v starship &> /dev/null
-then
-    eval "$(starship init zsh)" # Starship
-else
-    echo "starship command not found!"
-fi
-if command -v zoxide &> /dev/null
-then
-    eval "$(zoxide init zsh)" # Zoxide
-else
-    echo "zoxide command not found!"
-fi
+
+eval "$(starship init zsh)" # Starship
+eval "$(zoxide init zsh)" # Zoxide
 # colored-man-pages
 source ~/.config/zsh/plugins/colored-man-pages.zsh
 # zsh-syntax-highlighting
-if [ ! -d "$HOME/.config/zsh/plugins/zsh-syntax-highlighting" ]; then
+if [ ! -f "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.config/zsh/plugins/zsh-syntax-highlighting
 fi
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zsh-autosuggestions
-if [ ! -d "$HOME/.config/zsh/plugins/zsh-autosuggestions" ]; then
+if [ ! -f "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
 fi
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
